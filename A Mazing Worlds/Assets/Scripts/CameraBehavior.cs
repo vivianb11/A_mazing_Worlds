@@ -2,29 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 
 public class CameraBehavior : MonoBehaviour
 {
-    [SerializeField]
     private GameManager gameManager;
-
-    private GameObject _target;
-    [SerializeField] float cameraDistanceFromTarget = 22;
-
-    private bool _gyroAvailable=false;
-
+    
     private Camera _camera;
-    private Quaternion _initialOrientation;
 
-    private Quaternion rotation;
-    private Gyroscope gyro;
+    [Header("Gyro Parameters")][Space]
+    [SerializeField] float gyroSensitivity = 1;
+    Gyroscope gyro;
+    bool _gyroAvailable = false;
 
-    [SerializeField]
-    private float gyroSensitivity = 1;
-    [SerializeField]
-    private  float rotationSpeed = 2;
+    Quaternion _initialOrientation;
+    Quaternion rotation;
+
+    [Header("Target Behavior")][Space]
+    [SerializeField] GameObject _target;
+    
+    [Space]
+    [SerializeField] float rotationSpeed = 1;
+
+    [Space]
+    [SerializeField] float cameraDistanceFromTarget = 22;
+    [SerializeField] float translationSpeed = 1;
+
+    [Header("Touch Behavior")]
+    public float pinchThreshold = 0.1f;
+    bool pinchActive = false;
+    Vector2 finger1StartPos;
+    Vector2 finger2StartPos;
 
     private void Start()
     {
@@ -42,7 +52,50 @@ public class CameraBehavior : MonoBehaviour
     {
         if (_gyroAvailable)
         SetRotation();
+
+        if (Input.touches.Length > 1)
+        {
+            if (!pinchActive)
+            {
+                finger1StartPos = Input.touches[0].position;
+                finger2StartPos = Input.touches[1].position;
+            }
+
+            pinchActive = true;
+            
+            Vector2 finger1CurrentPos = Input.touches[0].position;
+            Vector2 finger2CurrentPos = Input.touches[1].position;
+
+            float startDistance = Vector2.Distance(finger1StartPos, finger2StartPos);
+            float currentDistance = Vector2.Distance(finger1CurrentPos, finger2CurrentPos);
+
+            float pinchDelta = currentDistance - startDistance;
+
+            if (Mathf.Abs(pinchDelta) > pinchThreshold)
+            {
+                // Pinch detected
+                if (pinchDelta > 0)
+                {
+                    // Pinch In
+                    Debug.Log("Pinch In");
+                }
+                else
+                {
+                    // Pinch Out
+                    Debug.Log("Pinch Out");
+                }
+            }
+
+        }
+        else
+        {
+            pinchActive= false;
+        }
+
+        if (pinchActive)
         CameraDistance();
+
+        ResetViewTarget();
     }
 
     void GyroSetup()
@@ -75,12 +128,24 @@ public class CameraBehavior : MonoBehaviour
     void CameraDistance()
     {
         if (Vector3.Distance(_camera.transform.position, _target.transform.position) != cameraDistanceFromTarget)
-            _camera.transform.localPosition = new (0,0,Mathf.Lerp(_camera.transform.localPosition.z, Vector3.Distance(this.transform.position, _target.transform.position) + cameraDistanceFromTarget,0.1f));
+            _camera.transform.localPosition = new (0,0,Mathf.Lerp(_camera.transform.localPosition.z, Vector3.Distance(this.transform.position, _target.transform.position) + cameraDistanceFromTarget,translationSpeed * Time.deltaTime));
     }
 
     void SetRotation()
     {
-        this.transform.LookAt(_target.transform, Vector3.back);
+        // Get the target direction
+        Vector3 targetDirection = _target.transform.position - transform.position;
+
+        // Create the target rotation
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.back);
+
+        // Smoothly interpolate between the current rotation and the target rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public void SetCameraPivotPoint(Vector3 position)
+    {
+        this.transform.position = position;
     }
 }
 

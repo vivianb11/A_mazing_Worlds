@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 738226725}
   - component: {fileID: 738226724}
   - component: {fileID: 738226728}
+  - component: {fileID: 738226729}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -472,6 +473,25 @@ MonoBehaviour:
   showGravityRange: 1
   gravityForce: 12
   gravityRange: 20
+--- !u!114 &738226729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738226723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60be8d4d1a04a8146aec769ae1be3b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 1
+  levelName: 
+  levelDescription: 
+  timer: 0
+  time: 0
+  finish: {fileID: 0}
+  start: {fileID: 0}
 --- !u!1 &931694702
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,10 +674,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a371e4f777b17b149b3d1208b5f98c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  cameraDistanceFromTarget: 22
   gyroSensitivity: 0.002
-  rotationSpeed: 0.5
+  _target: {fileID: 0}
+  rotationSpeed: 1
+  cameraDistanceFromTarget: 22
+  translationSpeed: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
