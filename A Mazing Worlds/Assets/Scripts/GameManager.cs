@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    public List<GameObject> players;
+    public List<Transform> players;
 
     private void Awake()
     {
@@ -16,10 +16,10 @@ public class GameManager : MonoBehaviour
 
     private void SetPlayers()
     {
-        players = GameObject.FindGameObjectsWithTag("Player").ToList();
+        players = GameObject.FindGameObjectsWithTag("Player").Select(x => x.transform).ToList();
     }
 
-    public List<GameObject> GetPlayers()
+    public List<Transform> GetPlayers()
     {
         return players;
     }
