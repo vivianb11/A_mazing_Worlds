@@ -635,7 +635,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 16
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &117676579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,8 +648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50bb2f3d23e17249a9a0aba88e5b6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerspeed: 10
-  maxVelocity: 15
+  playerspeed: 0.23
+  maxVelocity: 1.5
   target: {fileID: 738226727}
 --- !u!1 &161469083
 GameObject:
@@ -1809,10 +1809,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9e7c4c45dbb974bbc930c18d1f0fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   showGravityRange: 1
   gravityForce: 120
-  gravityRange: 25
+  gravityRange: 30
 --- !u!114 &738226729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3271,14 +3270,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555166365}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.67853373, y: 0.17394504, z: -0.068414226, w: 0.7103905}
+  m_LocalRotation: {x: 0.6695673, y: 0.18026973, z: -0.0694142, w: 0.71719193}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 14851997}
   m_Father: {fileID: 161469084}
-  m_LocalEulerAnglesHint: {x: 81.059, y: 83.101, z: 63.304}
+  m_LocalEulerAnglesHint: {x: 80.212, y: 76.958, z: 56.544}
 --- !u!1 &1559549838
 GameObject:
   m_ObjectHideFlags: 0
