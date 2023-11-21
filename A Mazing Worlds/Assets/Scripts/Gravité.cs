@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Gravité: MonoBehaviour
 {
-    [SerializeField]
     private GameManager gameManager;
+
+    private Transform[] attractedObjects;
 
     public bool showGravityRange = true;
 
@@ -14,11 +16,28 @@ public class Gravité: MonoBehaviour
     private void Start()
     {
         if (gameManager == null) { gameManager = Transform.FindFirstObjectByType<GameManager>(); }
+
+        // adds to the array "attractedObjects" all players and gameobjects transform with tag "ObjectToAttract"
+        int arraySize = gameManager.players.Count + GameObject.FindGameObjectsWithTag("ObjectToAttract").Length;
+
+        attractedObjects = new Transform[arraySize];
+
+        for (int i = 0; i < arraySize; i++)
+        {
+            if (i < gameManager.players.Count)
+            {
+                attractedObjects[i] = gameManager.players[i].transform;
+            }
+            else
+            {
+                attractedObjects[i] = GameObject.FindGameObjectsWithTag("ObjectToAttract")[i - gameManager.players.Count].transform;
+            }
+        }
     }
 
     private void Update()
     {
-        for (int i = 0; i < gameManager.players.Count; i++)
+        for (int i = 0; i < attractedObjects.Length; i++)
         {
             if (gravityRange >= Vector3.Distance(this.transform.position, gameManager.players[i].transform.position) && gameManager.players[i])
             {
