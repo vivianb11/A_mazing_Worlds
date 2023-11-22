@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Gravité: MonoBehaviour
+public class Gravity: MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -15,9 +15,8 @@ public class Gravité: MonoBehaviour
 
     private void Start()
     {
-        if (gameManager == null) { gameManager = Transform.FindFirstObjectByType<GameManager>(); }
+        if (gameManager == null) gameManager = Transform.FindFirstObjectByType<GameManager>();
 
-        // adds to the array "attractedObjects" all players and gameobjects transform with tag "ObjectToAttract"
         int arraySize = gameManager.players.Count + GameObject.FindGameObjectsWithTag("ObjectToAttract").Length;
 
         attractedObjects = new Transform[arraySize];
@@ -25,18 +24,15 @@ public class Gravité: MonoBehaviour
         for (int i = 0; i < arraySize; i++)
         {
             if (i < gameManager.players.Count)
-            {
                 attractedObjects[i] = gameManager.players[i].transform;
-            }
             else
-            {
                 attractedObjects[i] = GameObject.FindGameObjectsWithTag("ObjectToAttract")[i - gameManager.players.Count].transform;
-            }
         }
     }
 
     private void Update()
     {
+        // for each object in the array, if the object is in the gravity range, add a force to the object
         for (int i = 0; i < attractedObjects.Length; i++)
         {
             if (gravityRange >= Vector3.Distance(this.transform.position, gameManager.players[i].transform.position) && gameManager.players[i])

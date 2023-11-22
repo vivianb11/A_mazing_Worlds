@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
+    #region Variables
     private GameManager gameManager;
 
     private Camera _camera;
@@ -27,6 +28,7 @@ public class CameraBehavior : MonoBehaviour
     public float pinchSpeed = 1f;
     public Vector2 minMaxZoom = new Vector2(-5, 5);
     private float pinchTransformAddition;
+    #endregion
 
     private void Start()
     {
