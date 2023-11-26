@@ -6,9 +6,9 @@ PhysicMaterial:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_PM
-  dynamicFriction: 0.06
-  staticFriction: 0.4
-  bounciness: 0.73
+  m_Name: PM_Walls
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 1
   frictionCombine: 0
   bounceCombine: 0
