@@ -13,14 +13,12 @@ public class EditorLDPlacor : EditorWindow
     private bool resetRotation = true;
     private enum UpAxis { X, Y, Z };
     private UpAxis upAxis = UpAxis.Y;
-    Vector3 lookAt;
 
     [MenuItem("Tools/Snapping Editor")]
     public static void ShowWindow()
     {
         GetWindow(typeof(EditorLDPlacor), false, "Snapping Editor");
     }
-
     void OnGUI()
     {
         GUILayout.Label("Snap Object", EditorStyles.boldLabel);
@@ -72,29 +70,17 @@ public class EditorLDPlacor : EditorWindow
                     switch (upAxis)
                     {
                         case UpAxis.X:
-                            //lookAt = Vector3.Cross(-hit.normal, selectedObject.transform.right);
-                            //lookAt = lookAt.x < 0 ? -lookAt : lookAt;
                             selectedObject.transform.right = hit.normal;
                             break;
                         case UpAxis.Y:
-                            //lookAt = Vector3.Cross(-hit.normal, selectedObject.transform.up);
-                            //lookAt = lookAt.y < 0 ? -lookAt : lookAt;
                             selectedObject.transform.up = hit.normal;
                             break;
                         case UpAxis.Z:
-                            //lookAt = Vector3.Cross(-hit.normal, selectedObject.transform.forward);
-                            //lookAt = lookAt.z < 0 ? -lookAt : lookAt;
-
                             selectedObject.transform.forward = hit.normal;
                             break;
                     }
 
-
-                    //selectedObject.transform.rotation = Quaternion.LookRotation(hit.point + lookAt, hit.normal);
-
-                    //selectedObject.transform.forward = hit.normal;
                     Vector3 rotation = selectedObject.transform.eulerAngles;
-
 
                     switch (upAxis)
                     {
@@ -106,13 +92,12 @@ public class EditorLDPlacor : EditorWindow
                             break;
                         case UpAxis.Z:
                             rotation.z = initialRotation.z;
+                            selectedObject.transform.eulerAngles = rotation;
                             break;
                         default:
                             break;
                     }
                     
-                    selectedObject.transform.eulerAngles = rotation;
-
                     //selectedObject.transform.rotation.SetFromToRotation(selectedObject.transform.rotation.eulerAngles, rotation);
                 }
             }

@@ -24,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        //if the the player is in the air verified by raycast, the player will not be able to move
+        if (!Physics.Raycast(transform.position, Vector3.down, 1.1f))
+            Move();
 
         if (Input.touchCount > 3)
         {
