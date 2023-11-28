@@ -29,7 +29,7 @@ public class JumpPadMain : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         // if the player collides with the object it will launch the player with a addforce and call the event
         if (collision.gameObject.tag == "Player" && !playerLaunched)
