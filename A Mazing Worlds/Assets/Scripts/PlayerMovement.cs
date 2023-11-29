@@ -1,4 +1,6 @@
-    using UnityEngine;
+using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -55,4 +57,11 @@ public class PlayerMovement : MonoBehaviour
 
         flatGyro = Input.acceleration;
     }
+
+    // public function that returns the direction of the phone with the flatGyro rotation applied
+    public Vector3 GetMovementDirection()
+    {
+        return new Vector3(Input.acceleration.x, Input.acceleration.y, 0) - flatGyro;
+    }
+
 }
