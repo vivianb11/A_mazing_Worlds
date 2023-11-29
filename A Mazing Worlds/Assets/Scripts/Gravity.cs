@@ -35,10 +35,13 @@ public class Gravity: MonoBehaviour
         // for each object in the array, if the object is in the gravity range, add a force to the object
         for (int i = 0; i < attractedObjects.Length; i++)
         {
-            if (gravityRange >= Vector3.Distance(this.transform.position, gameManager.players[i].transform.position) && gameManager.players[i])
-            {
-                gameManager.players[i].GetComponent<Rigidbody>().AddForce((this.transform.position - gameManager.players[i].transform.position) * (gravityForce * Time.deltaTime));
-            }
+            if (!attractedObjects[i])
+                continue;
+
+            if (Vector3.Distance(transform.position, attractedObjects[i].position) > gravityRange)
+                continue;
+
+            attractedObjects[i].GetComponent<Rigidbody>().AddForce((transform.position - attractedObjects[i].position) * gravityForce);
         }
     }
 
