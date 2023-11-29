@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class JumpPadMain : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class JumpPadMain : MonoBehaviour
     [SerializeField] float cooldown = 1;
     bool playerLaunched = false;
 
-    private void Awake()
+    private void OnEnable()
     {
         // add the event to the camera
         LaunchPlayerEvent += Camera.main.GetComponent<CameraShake>().ShakeCamera;
