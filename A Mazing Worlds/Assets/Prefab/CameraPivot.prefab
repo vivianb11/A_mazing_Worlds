@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a371e4f777b17b149b3d1208b5f98c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetBehavior: 1
   _target: {fileID: 0}
   rotationSpeed: 1
   cameraDistanceFromTarget: 45
@@ -158,6 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b935553d852dbd44dae15f9028bb6d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeDuration: 0.5
+  shakeStrength: 0.1
+  shakeVibrato: 10
+  shakeRandomness: 90
+  shakeFadeOut: 1
+  shakeSnapping: 0
 --- !u!1 &8091511536515899200
 GameObject:
   m_ObjectHideFlags: 0
