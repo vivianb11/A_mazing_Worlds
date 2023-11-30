@@ -14,17 +14,12 @@ public class JumpPadMain : MonoBehaviour
     [SerializeField] float cooldown = 1;
     bool playerLaunched = false;
 
-    private void OnEnable()
-    {
-        // add the event to the camera
-        LaunchPlayerEvent += Camera.main.GetComponent<CameraShake>().ShakeCamera;
-    }
+    // different states of the jump pad
+    enum JumpPadState { Idle, Launching, Cooldown };
+    JumpPadState jumpPadState = JumpPadState.Idle;
 
-    private void OnDisable()
-    {
-        // remove the event from the camera
-        LaunchPlayerEvent -= Camera.main.GetComponent<CameraShake>().ShakeCamera;
-    }
+    // different modes of the jump pad
+    enum JumpPadMode { Simple, Controled, Charging};
 
     private void Update()
     {
