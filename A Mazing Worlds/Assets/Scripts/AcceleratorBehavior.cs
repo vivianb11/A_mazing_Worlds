@@ -34,7 +34,7 @@ public class AcceleratorBehavior : MonoBehaviour
     }
 
     // on collision with the player, add a force to the players current direction flattened to the controler point plane XY
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Player" && !playerLaunched)
         {
