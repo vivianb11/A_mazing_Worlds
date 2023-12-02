@@ -35,7 +35,7 @@ public class JumpPadMain : MonoBehaviour
             print("Player launched");
             playerLaunched = true;
             collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * jumpForce, ForceMode.Impulse);
-            LaunchPlayerEvent();
+            //LaunchPlayerEvent();
             StartCoroutine(ResetLaunch());
         }
     }

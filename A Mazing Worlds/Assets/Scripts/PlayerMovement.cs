@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform movementOrientation;
     private Rigidbody rb;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (!movementOrientation)
@@ -24,16 +23,12 @@ public class PlayerMovement : MonoBehaviour
         Input.gyro.enabled = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.DrawLine(transform.position, -movementOrientation.up, Color.red, 1.5f);
-        if (!Physics.Raycast(transform.position, -movementOrientation.up, 1.1f))
-            Move();
+        Move();
 
         if (Input.touchCount > 3)
         {
-            Debug.Log("Space pressed");
             SetFlatGyroRotation();
         }
     }
@@ -51,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetFlatGyroRotation()
     {
-        Debug.Log("Flat gyro set");
         flatGyro = new Vector3(Input.gyro.gravity.x, Input.gyro.gravity.y, 0);
     }
 
@@ -98,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
 
 //        if (Input.touchCount > 3)
 //        {
-//            Debug.Log("Space pressed");
 //            SetFlatGyroRotation();
 //        }
 //    }

@@ -3,14 +3,14 @@ using UnityEngine;
 using DG.Tweening;
 
 
-public class CameraBehavior : MonoBehaviour
+public class CameraPivotBehavior : MonoBehaviour
 {
     #region Variables
     public enum TargetBehavior { Average, Closest };
 
     private GameManager gameManager;
 
-    private Camera _camera;
+    private Transform _controlerPoint;
 
     [Header("Target Behavior")]
     [Space]
@@ -20,11 +20,7 @@ public class CameraBehavior : MonoBehaviour
     [SerializeField] Transform _target;
 
     [Space]
-    [SerializeField] float rotationSpeed = 1;
-
-    [Space]
     [SerializeField] float cameraDistanceFromTarget = 22;
-    [SerializeField] float translationSpeed = 1;
 
     [Header("Touch Behavior")]
     public float pinchThreshold = 0.1f;
@@ -40,7 +36,7 @@ public class CameraBehavior : MonoBehaviour
     {
         if (gameManager == null) { gameManager = Transform.FindFirstObjectByType<GameManager>(); }
         _target = gameManager.players[0];
-        _camera = Camera.main;
+        _controlerPoint = this.transform.GetChild(0);
 
         SetClosestTarget();
     }
@@ -90,9 +86,7 @@ public class CameraBehavior : MonoBehaviour
             pinchActive = false;
         }
 
-        //if (!pinchActive)
         CameraPlanetDistance();
-
 
         if (targetBehavior == TargetBehavior.Average)
             SetAverageTarget();
@@ -125,8 +119,8 @@ public class CameraBehavior : MonoBehaviour
 
     void CameraPlanetDistance()
     {
-        if (Vector3.Distance(_camera.transform.position, _target.transform.position) != cameraDistanceFromTarget)
-            _camera.transform.localPosition = new(0, 0, Mathf.Lerp(_camera.transform.localPosition.z, Vector3.Distance(this.transform.position, _target.transform.position) + cameraDistanceFromTarget + pinchTransformAddition, translationSpeed * Time.deltaTime));
+        if (Vector3.Distance(_controlerPoint.transform.position, _target.transform.position) != cameraDistanceFromTarget)
+            _controlerPoint.localPosition = new(0, 0, Vector3.Distance(this.transform.position, _target.transform.position) + cameraDistanceFromTarget + pinchTransformAddition);
     }
 
     void SetRotation()
@@ -138,10 +132,5 @@ public class CameraBehavior : MonoBehaviour
     public void SetCameraPivotPoint(Vector3 position)
     {
         this.transform.position = position;
-    }
-    //creates a false offset to the camera that is a child of this camera pivot to make it feel like it's rotating around the planet depending on the player's movement
-    public void SetCameraOffset(Vector3 position)
-    {
-        this.transform.GetChild(0).transform.localPosition = position;
     }
 }
