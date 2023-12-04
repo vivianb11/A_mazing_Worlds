@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Autodesk.Fbx;
-using System.Net.NetworkInformation;
 
 public class CameraFolow : MonoBehaviour
 {
