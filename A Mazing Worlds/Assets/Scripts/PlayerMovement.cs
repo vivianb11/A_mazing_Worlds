@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,14 +24,18 @@ public class PlayerMovement : MonoBehaviour
         Input.gyro.enabled = true;
     }
 
+    private void Start()
+    {
+        SetFlatGyroRotation();
+    }
+
     void Update()
     {
         Move();
 
-        if (Input.touchCount > 3)
-        {
-            SetFlatGyroRotation();
-        }
+        //if the player doubletaps within a sertain delay the screen, the flat gyro will be reset
+        DoubleTap();
+        //SetFlatGyroRotation();
     }
 
     public void Move()
@@ -44,6 +49,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void DoubleTap()
+    {
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            float tapTime = 0.5f;
+            while (tapTime > 0)
+            {
+                if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+                {
+                    print("Double tap");
+                    SetFlatGyroRotation();
+                    break;
+                }
+                tapTime -= Time.deltaTime;
+            }
+        }
+    }
+    
     public void SetFlatGyroRotation()
     {
         flatGyro = new Vector3(Input.gyro.gravity.x, Input.gyro.gravity.y, 0);
