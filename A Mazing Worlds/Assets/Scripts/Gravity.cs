@@ -10,8 +10,8 @@ public class Gravity: MonoBehaviour
 
     public bool showGravityRange = true;
 
-    public float gravityForce =12;
-    public float gravityRange = 30;
+    public float gravityForce =1;
+    public float gravityRange = 75;
 
     private void Start()
     {

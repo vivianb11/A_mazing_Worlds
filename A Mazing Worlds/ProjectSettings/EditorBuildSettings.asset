@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VivianLab.unity
     guid: e6e6d8e7f73ff5243b7e5d7e05867bbc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainGame.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Michel.unity
     guid: e8eebf36e11d9ec469ad552e28d085ab
   m_configObjects:
