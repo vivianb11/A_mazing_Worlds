@@ -10,13 +10,17 @@ public class LevelManager : MonoBehaviour
     public int levelNumber;
 
     public string levelName;
-    public string levelDescription;
 
     [Header("Level Carasteristics")]
     public bool timer;
     public float time;
 
     public Collider finish, start;
+
+    private void Awake()
+    {
+        gameObject.tag = "Planet";
+    }
 
     // Start is called before the first frame update
     void Start()
