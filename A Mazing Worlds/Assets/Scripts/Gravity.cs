@@ -30,7 +30,7 @@ public class Gravity: MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // for each object in the array, if the object is in the gravity range, add a force to the object
         for (int i = 0; i < attractedObjects.Length; i++)

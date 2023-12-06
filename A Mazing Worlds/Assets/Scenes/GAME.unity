@@ -645,7 +645,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 3
   levelName: 
-  levelDescription: 
   timer: 0
   time: 0
   finish: {fileID: 0}
@@ -1625,6 +1624,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3002435647962418897, guid: 12b16e1d74bf479448b8b90640a8fed4,
+        type: 3}
+      propertyPath: m_Radius
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3906925063463274648, guid: 12b16e1d74bf479448b8b90640a8fed4,
         type: 3}
       propertyPath: jumpForce
@@ -1651,17 +1655,17 @@ PrefabInstance:
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -259.36
+      value: -231.14
       objectReference: {fileID: 0}
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
@@ -1978,7 +1982,7 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 1
   m_Method: 0
-  m_Duration: 99.99999
+  m_Duration: 100
   m_MaxSpeed: 0.031416487
   m_EasingMode: 0
   m_AlignmentMode: 0
@@ -2067,7 +2071,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 2
   levelName: 
-  levelDescription: 
   timer: 0
   time: 0
   finish: {fileID: 0}

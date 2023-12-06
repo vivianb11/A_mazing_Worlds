@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         SetFlatGyroRotation();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
 
