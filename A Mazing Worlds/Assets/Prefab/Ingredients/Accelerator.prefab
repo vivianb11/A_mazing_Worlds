@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6363432569929376655}
   - component: {fileID: 2386604612325381321}
   - component: {fileID: 3151296252833087261}
+  - component: {fileID: 7877146024683640198}
   - component: {fileID: 3605187804686231905}
   m_Layer: 0
   m_Name: Accelerator
@@ -28,9 +29,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6118608817256024888}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.18840457, w: 0.98209155}
-  m_LocalPosition: {x: 0.4599, y: -0.1832, z: 0}
-  m_LocalScale: {x: 0.015639763, y: 0.028805533, z: 0.036199104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.10145, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,12 +101,33 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 0.5150807, z: 1.0000002}
+  m_Center: {x: 0, y: 0.24245895, z: -0}
+--- !u!65 &7877146024683640198
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118608817256024888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4.3989587, z: 1}
+  m_Center: {x: 0, y: 1.6994784, z: -0}
 --- !u!114 &3605187804686231905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,8 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1d629a62c264f4e8708520a7aaceec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostForce: 75
-  cooldown: 2
-  idleMaterial: {fileID: 0}
-  launchingMaterial: {fileID: 0}
-  CooldownMaterial: {fileID: 0}
+  acceleratorMode: 1
+  boostForce: 10
+  cooldown: 1

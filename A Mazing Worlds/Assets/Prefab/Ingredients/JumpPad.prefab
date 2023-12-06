@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6481903777521533467}
   - component: {fileID: 6780414091412944038}
   - component: {fileID: 6917234825475021394}
-  - component: {fileID: 2311462311454272409}
+  - component: {fileID: 6123643054463198435}
+  - component: {fileID: 1441208842621141460}
   - component: {fileID: 8410509959854490112}
   m_Layer: 0
   m_Name: JumpPad
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4467440256714654575}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.031759687, w: 0.99949557}
-  m_LocalPosition: {x: 0.4923381, y: 0.03132171, z: 0}
-  m_LocalScale: {x: 0.015639763, y: 0.028805533, z: 0.036199104}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.10145, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.64}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &6780414091412944038
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -85,7 +86,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2311462311454272409
+--- !u!65 &6123643054463198435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467440256714654575}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 0.5150807, z: 1.0000002}
+  m_Center: {x: 0, y: 0.24245895, z: -0}
+--- !u!65 &1441208842621141460
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,8 +126,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3802263, y: 1, z: 0.99999964}
-  m_Center: {x: 0.19011442, y: 2.4379865e-10, z: 0}
+  m_Size: {x: 1, y: 4.3989587, z: 1}
+  m_Center: {x: 0, y: 1.6994784, z: -0}
 --- !u!114 &8410509959854490112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,5 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1eee42f8da074449f0350bec58a001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 13
+  jumpForce: 10
   cooldown: 1
+  jumpPadMode: 0

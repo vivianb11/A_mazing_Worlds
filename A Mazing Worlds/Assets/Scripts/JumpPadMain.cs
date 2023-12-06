@@ -7,6 +7,9 @@ using UnityEngine.Events;
 
 public class JumpPadMain : MonoBehaviour
 {
+    enum JumpPadMode { Simple, Controled, Charging};
+    enum JumpPadState { Idle, Launching, Cooldown };
+
     //add a event so that when the player is launched a event is called
     public delegate void LaunchPlayer();
     public static event LaunchPlayer LaunchPlayerEvent;
@@ -16,11 +19,10 @@ public class JumpPadMain : MonoBehaviour
     bool playerLaunched = false;
 
     // different states of the jump pad
-    enum JumpPadState { Idle, Launching, Cooldown };
     JumpPadState jumpPadState = JumpPadState.Idle;
 
     // different modes of the jump pad
-    enum JumpPadMode { Simple, Controled, Charging};
+    [SerializeField] JumpPadMode jumpPadMode = JumpPadMode.Simple;
 
     private void Update()
     {
@@ -34,9 +36,28 @@ public class JumpPadMain : MonoBehaviour
         {
             print("Player launched");
             playerLaunched = true;
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * jumpForce, ForceMode.Impulse);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
             //LaunchPlayerEvent();
             StartCoroutine(ResetLaunch());
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if(jumpPadMode == JumpPadMode.Simple)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(transform.position, transform.up * 2);
+        }
+        else if(jumpPadMode == JumpPadMode.Controled)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, 1);
+        }
+        else if(jumpPadMode == JumpPadMode.Charging)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, 1);
         }
     }
 

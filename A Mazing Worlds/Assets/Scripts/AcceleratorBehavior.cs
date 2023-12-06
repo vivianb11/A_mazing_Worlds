@@ -4,61 +4,82 @@ using UnityEngine;
 
 public class AcceleratorBehavior : MonoBehaviour
 {
-    //bost force
-    [SerializeField] float boostForce = 100;
+    enum AcceleratorState { Idle, Launching, Cooldown };
+    enum AcceleratorMode { SimpleBoost, ControledBoost };
+
+    [SerializeField] AcceleratorMode acceleratorMode = AcceleratorMode.SimpleBoost;
+    
+    [SerializeField] float boostForce = 10;
     [SerializeField] float cooldown = 1;
-    bool playerLaunched = false;
+    bool playerAccelerated = false;
 
     // different states of the jump pad
-    enum JumpPadState { Idle, Launching, Cooldown };
-    JumpPadState jumpPadState = JumpPadState.Idle;
-
-    //different materials for each state
-    [SerializeField] Material idleMaterial, launchingMaterial, CooldownMaterial;
+    AcceleratorState acceleratorState = AcceleratorState.Idle;
 
     private void Update()
     {
-        // switch the material based on the state
-        switch (jumpPadState)
-        {
-            case JumpPadState.Idle:
-                GetComponent<Renderer>().material = (idleMaterial)? idleMaterial: GetComponent<Renderer>().material;
-                break;
-            case JumpPadState.Launching:
-                GetComponent<Renderer>().material = (launchingMaterial) ? launchingMaterial : GetComponent<Renderer>().material;
-                break;
-            case JumpPadState.Cooldown:
-                GetComponent<Renderer>().material = (CooldownMaterial) ? CooldownMaterial : GetComponent<Renderer>().material;
-                break;
-        }
+        
     }
 
     // on collision with the player, add a force to the players current direction flattened to the controler point plane XY
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player" && !playerLaunched)
+        if (collision.gameObject.tag == "Player" && !playerAccelerated)
         {
-            playerLaunched = true;
+            print("Player Accelerated");
+            playerAccelerated = true;
+            acceleratorState = AcceleratorState.Launching;
 
-            Vector3 playerDirection = collision.gameObject.GetComponent<Rigidbody>().velocity;
-            playerDirection = Vector3.ProjectOnPlane(playerDirection, this.transform.right);
+            switch (acceleratorMode)
+            {
+                case AcceleratorMode.SimpleBoost:
+                    SimpleBoost(collision);
+                    break;
+                case AcceleratorMode.ControledBoost:
+                    ControledBoost(collision);
+                    break;
+            }
 
-            jumpPadState = JumpPadState.Launching;
-
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(playerDirection.normalized * boostForce,ForceMode.Impulse);
-
-            StartCoroutine(ResetLaunch());
+            StartCoroutine(ResetLaunch(cooldown));
         }
     }
 
-    IEnumerator ResetLaunch()
+    void SimpleBoost(Collider collision)
+    {
+        Vector3 playerDirection = collision.gameObject.GetComponent<Rigidbody>().velocity;
+        playerDirection = Vector3.ProjectOnPlane(playerDirection, this.transform.right);
+
+        collision.gameObject.GetComponent<Rigidbody>().AddForce(playerDirection.normalized * boostForce, ForceMode.Impulse);
+    }
+
+    void ControledBoost(Collider collision)
+    {
+        Vector3 playerDirection = collision.gameObject.GetComponent<Rigidbody>().velocity;
+        playerDirection = Vector3.ProjectOnPlane(playerDirection, this.transform.right);
+
+        collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * boostForce, ForceMode.Impulse);
+    }
+
+    private void OnDrawGizmos()
+    {
+        switch (acceleratorMode)
+        {
+            case AcceleratorMode.ControledBoost:
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position + transform.up*0.15f, 0.05f);
+                Gizmos.DrawLine(transform.position + transform.up * 0.15f, transform.position + transform.up * 0.15f + transform.forward.normalized * boostForce);
+                break;
+        }
+    }
+
+    IEnumerator ResetLaunch(float duration)
     {
         yield return new WaitForSeconds(0.1f);
         
-        jumpPadState = JumpPadState.Cooldown;
-        yield return new WaitForSeconds(cooldown);
+        acceleratorState = AcceleratorState.Cooldown;
+        yield return new WaitForSeconds(duration - 0.1f);
         
-        jumpPadState = JumpPadState.Idle;
-        playerLaunched = false;
+        acceleratorState = AcceleratorState.Idle;
+        playerAccelerated = false;
     }
 }

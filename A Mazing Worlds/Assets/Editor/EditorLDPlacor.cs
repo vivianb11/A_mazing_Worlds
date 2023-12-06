@@ -30,75 +30,69 @@ public class EditorLDPlacor : EditorWindow
         resetRotation = EditorGUILayout.Toggle("Rotate to Normal", resetRotation);
         
 
-        if (GUILayout.Button("Snap"))
+        if (GUILayout.Button("Snap") && snapObject != null && Selection.gameObjects.Length > 0)
         {
-            if (snapObject != null && Selection.gameObjects.Length > 0)
+            Vector3 center = snapObject.transform.position;
+
+            RaycastHit hit;
+
+            foreach (GameObject selectedObject in Selection.gameObjects)
             {
+                if (selectedObject == snapObject)
+                    continue;
 
-                Vector3 center = snapObject.transform.position;
+                Undo.RecordObject(selectedObject.transform, "Snap");
 
-                RaycastHit hit;
+                Vector3 direction = center - selectedObject.transform.position;
 
-                foreach (GameObject selectedObject in Selection.gameObjects)
+                if (!Physics.Raycast(selectedObject.transform.position - direction.normalized * 0.000001f, direction, out hit, Mathf.Infinity))
+                    continue;
+
+                Debug.DrawLine(selectedObject.transform.position - direction.normalized, hit.point, Color.red, 2.5f);
+
+                // Move the object to the collision point
+                selectedObject.transform.position = hit.point ;
+
+                selectedObject.transform.position += hit.normal.normalized * snapOffset;
+
+                // rotate the object so it has the same up as the normal by doing the less changes possible to every other axis
+                if (!resetRotation)
+                    continue;
+
+                Vector3 initialRotation = selectedObject.transform.eulerAngles;
+
+                selectedObject.transform.rotation = Quaternion.identity;
+
+                //sets the forward to the normal depending on the enum
+                switch (upAxis)
                 {
-                    if (selectedObject == snapObject)
-                        continue;
+                    case UpAxis.X:
+                        selectedObject.transform.right = hit.normal;
+                        break;
+                    case UpAxis.Y:
+                        selectedObject.transform.up = hit.normal;
+                        break;
+                    case UpAxis.Z:
+                        selectedObject.transform.forward = hit.normal;
+                        break;
+                }
 
-                    Undo.RecordObject(selectedObject.transform, "Snap");
+                Vector3 rotation = selectedObject.transform.eulerAngles;
 
-                    Vector3 direction = center - selectedObject.transform.position;
-
-                    if (!Physics.Raycast(selectedObject.transform.position - direction.normalized * 0.000001f, direction, out hit, Mathf.Infinity))
-                        continue;
-
-                    Debug.DrawLine(selectedObject.transform.position - direction.normalized, hit.point, Color.red, 2.5f);
-
-                    // Move the object to the collision point
-                    selectedObject.transform.position = hit.point ;
-
-                    selectedObject.transform.position += hit.normal.normalized * snapOffset;
-
-                    // rotate the object so it has the same up as the normal by doing the less changes possible to every other axis
-                    if (!resetRotation)
-                        continue;
-
-                    Vector3 initialRotation = selectedObject.transform.eulerAngles;
-
-                    selectedObject.transform.rotation = Quaternion.identity;
-
-                    //sets the forward to the normal depending on the enum
-                    switch (upAxis)
-                    {
-                        case UpAxis.X:
-                            selectedObject.transform.right = hit.normal;
-                            break;
-                        case UpAxis.Y:
-                            selectedObject.transform.up = hit.normal;
-                            break;
-                        case UpAxis.Z:
-                            selectedObject.transform.forward = hit.normal;
-                            break;
-                    }
-
-                    Vector3 rotation = selectedObject.transform.eulerAngles;
-
-                    switch (upAxis)
-                    {
-                        case UpAxis.X:
-                            rotation.x = initialRotation.x;
-                            break;
-                        case UpAxis.Y:
-                            rotation.y = initialRotation.y;
-                            break;
-                        case UpAxis.Z:
-                            rotation.z = initialRotation.z;
-                            selectedObject.transform.eulerAngles = rotation;
-                            break;
-                        default:
-                            break;
-                    }
-                    
-                    //selectedObject.transform.rotation.SetFromToRotation(selectedObject.transform.rotation.eulerAngles, rotation);
+                switch (upAxis)
+                {
+                    case UpAxis.X:
+                        rotation.x = initialRotation.x;
+                        break;
+                    case UpAxis.Y:
+                        rotation.y = initialRotation.y;
+                        break;
+                    case UpAxis.Z:
+                        rotation.z = initialRotation.z;
+                        selectedObject.transform.eulerAngles = rotation;
+                        break;
+                    default:
+                        break;
                 }
             }
         }
