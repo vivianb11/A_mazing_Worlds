@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxVelocity;
 
     private Vector3 flatGyro;
-    private Vector2 acceleration;
 
     [SerializeField] Transform movementOrientation;
     private Rigidbody rb;
@@ -26,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        SetFlatGyroRotation();
+        GameInput.instance.SetFlatGyroRotation();
     }
 
     void Update()
@@ -40,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        acceleration = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y) - new Vector2(flatGyro.x, flatGyro.y);
+        Vector2 acceleration = GameInput.instance.GetGyro();
 
         if (rb.velocity.sqrMagnitude < (maxVelocity * maxVelocity) && acceleration.sqrMagnitude > Mathf.Pow(0.05f, 2))
         {
@@ -59,17 +58,12 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     print("Double tap");
-                    SetFlatGyroRotation();
+                    GameInput.instance.SetFlatGyroRotation();
                     break;
                 }
                 tapTime -= Time.deltaTime;
             }
         }
-    }
-    
-    public void SetFlatGyroRotation()
-    {
-        flatGyro = new Vector3(Input.gyro.gravity.x, Input.gyro.gravity.y, 0);
     }
 
     public Vector3 GetMovementDirection()
