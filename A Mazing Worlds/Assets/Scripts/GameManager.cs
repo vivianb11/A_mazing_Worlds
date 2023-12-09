@@ -121,10 +121,7 @@ public class GameManager : MonoBehaviour
         {
             if (GUI.Button(new Rect(Screen.width - 100, Screen.height - 100, 100, 100), "Reset Gyro"))
             {
-                foreach (var player in players)
-                {
-                    player.GetComponent<PlayerMovement>().SetFlatGyroRotation();
-                }
+                GameInput.instance.SetFlatGyroRotation();
             }
         }
     }
