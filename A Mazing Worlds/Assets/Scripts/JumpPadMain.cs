@@ -10,19 +10,17 @@ public class JumpPadMain : MonoBehaviour
     enum JumpPadMode { Simple, Controled, Charging};
     enum JumpPadState { Idle, Launching, Cooldown };
 
-    //add a event so that when the player is launched a event is called
-    public delegate void LaunchPlayer();
-    public static event LaunchPlayer LaunchPlayerEvent;
+    [SerializeField] JumpPadMode jumpPadMode = JumpPadMode.Simple;
 
     [SerializeField] float jumpForce = 100;
+
+    public Transform jumpTarget;
+
     [SerializeField] float cooldown = 1;
     bool playerLaunched = false;
 
     // different states of the jump pad
     JumpPadState jumpPadState = JumpPadState.Idle;
-
-    // different modes of the jump pad
-    [SerializeField] JumpPadMode jumpPadMode = JumpPadMode.Simple;
 
     private void Update()
     {
@@ -36,8 +34,7 @@ public class JumpPadMain : MonoBehaviour
         {
             print("Player launched");
             playerLaunched = true;
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            //LaunchPlayerEvent();
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.up.normalized * jumpForce, ForceMode.Impulse);
             StartCoroutine(ResetLaunch());
         }
     }
@@ -46,19 +43,34 @@ public class JumpPadMain : MonoBehaviour
     {
         if(jumpPadMode == JumpPadMode.Simple)
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawRay(transform.position, transform.up * 2);
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position, transform.up.normalized * jumpForce);
         }
         else if(jumpPadMode == JumpPadMode.Controled)
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, 1);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position + transform.up.normalized * 0.1f, 0.08f);
+            
+            //add a curved line that goes upwards to finaly refall to the target
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(jumpTarget.position + jumpTarget.up.normalized * 0.1f, 0.08f);
+
+            Vector3 midpoint = GetMidpoint();
+            midpoint += transform.up.normalized * jumpForce / 10;
+
+            Gizmos.DrawLine(transform.position + transform.up.normalized * 0.1f, midpoint);
+            Gizmos.DrawLine(jumpTarget.position + jumpTarget.up.normalized * 0.1f, midpoint);
         }
         else if(jumpPadMode == JumpPadMode.Charging)
         {
-            Gizmos.color = Color.blue;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, 1);
         }
+    }
+
+    Vector3 GetMidpoint()
+    {
+        return (transform.position + jumpTarget.position) / 2;
     }
 
     IEnumerator ResetLaunch()

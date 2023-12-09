@@ -6,6 +6,8 @@ using NaughtyAttributes;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance {get; private set;}
+
     public List<Transform> players;
 
     public List<LevelManager> levels;
@@ -19,6 +21,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        instance = this;
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         players = new();
         levels = new();
         SetPlayers();

@@ -67,7 +67,7 @@ public class AcceleratorBehavior : MonoBehaviour
             case AcceleratorMode.ControledBoost:
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(transform.position + transform.up*0.15f, 0.05f);
-                Gizmos.DrawLine(transform.position + transform.up * 0.15f, transform.position + transform.up * 0.15f + transform.forward.normalized * boostForce);
+                Gizmos.DrawLine(transform.position + transform.up * 0.15f, transform.position + transform.up * 0.15f + transform.forward.normalized * boostForce / 10);
                 break;
         }
     }
