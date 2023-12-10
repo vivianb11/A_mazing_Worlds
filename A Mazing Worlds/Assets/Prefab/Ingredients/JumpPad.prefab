@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3530203250446154152}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.073, y: 0, z: 1.025}
+  m_LocalRotation: {x: 0.12863286, y: 0.12070712, z: 0.0072037578, w: 0.9842924}
+  m_LocalPosition: {x: 0.25949645, y: -5.032588, z: 3.9212785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62,8 +62,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.10145, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.032510288, y: 0.0032981688, z: 0.032510288}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8240265283419842488}
   m_Father: {fileID: 0}
@@ -172,7 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1eee42f8da074449f0350bec58a001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPadMode: 2
-  jumpForce: 10
+  jumpPadMode: 1
+  jumpForce: 5
+  jumpHeight: 5
   jumpTarget: {fileID: 8240265283419842488}
   cooldown: 1

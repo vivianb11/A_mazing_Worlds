@@ -304,26 +304,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
-        type: 3}
-      propertyPath: minMaxXYaw
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
-        type: 3}
-      propertyPath: minMaxXYaw.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
-        type: 3}
-      propertyPath: minMaxXYaw.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
-        type: 3}
-      propertyPath: minMaxYPitch
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6944658871725874326, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1678,7 +1658,7 @@ PrefabInstance:
     - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
         type: 3}
       propertyPath: jumpForce
-      value: 45.96
+      value: 5.27
       objectReference: {fileID: 0}
     - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
         type: 3}

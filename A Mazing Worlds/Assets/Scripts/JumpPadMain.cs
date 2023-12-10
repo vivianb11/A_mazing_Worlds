@@ -12,7 +12,8 @@ public class JumpPadMain : MonoBehaviour
 
     [SerializeField] JumpPadMode jumpPadMode = JumpPadMode.Simple;
 
-    [SerializeField] float jumpForce = 100;
+    [SerializeField] float jumpForce = 20;
+    [SerializeField] float jumpHeight = 5;
 
     public Transform jumpTarget;
 
@@ -34,10 +35,24 @@ public class JumpPadMain : MonoBehaviour
         {
             print("Player launched");
             playerLaunched = true;
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.up.normalized * jumpForce, ForceMode.Impulse);
+
+            switch (jumpPadMode)
+            {
+                case JumpPadMode.Simple:
+                    SimpleJump(collision);
+                    break;
+                case JumpPadMode.Controled:
+                    ControledJump(collision);
+                    break;
+                case JumpPadMode.Charging:
+                    ChargingJump(collision);
+                    break;
+            }
+
             StartCoroutine(ResetLaunch());
         }
     }
+
 
     void OnDrawGizmos()
     {
@@ -46,31 +61,48 @@ public class JumpPadMain : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawRay(transform.position, transform.up.normalized * jumpForce);
         }
-        else if(jumpPadMode == JumpPadMode.Controled)
+        else if(jumpPadMode == JumpPadMode.Controled || jumpPadMode == JumpPadMode.Charging)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position + transform.up.normalized * 0.1f, 0.08f);
-            
-            //add a curved line that goes upwards to finaly refall to the target
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(jumpTarget.position + jumpTarget.up.normalized * 0.1f, 0.08f);
+            Gizmos.color = Color.green;
 
-            Vector3 midpoint = GetMidpoint();
-            midpoint += transform.up.normalized * jumpForce / 10;
+            Gizmos.DrawWireSphere(transform.position + transform.up.normalized * 0.1f, 0.1f);
+            Gizmos.DrawWireSphere(jumpTarget.position + jumpTarget.up.normalized * 0.1f, 0.1f);
+
+            Vector3 midpoint = GetMidpointWithHeight();
 
             Gizmos.DrawLine(transform.position + transform.up.normalized * 0.1f, midpoint);
             Gizmos.DrawLine(jumpTarget.position + jumpTarget.up.normalized * 0.1f, midpoint);
-        }
-        else if(jumpPadMode == JumpPadMode.Charging)
-        {
+
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, 1);
+            Gizmos.DrawRay(transform.position + transform.up.normalized * 0.2f, ((midpoint + transform.up.normalized * 0.1f) - (transform.position + transform.up.normalized * 0.2f)).normalized * jumpForce);
         }
+    }
+
+    void SimpleJump(Collider collision)
+    {
+        collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.up.normalized * jumpForce, ForceMode.Impulse);
+    }
+
+    private void ChargingJump(Collider collision)
+    {
+        Vector3 midpoint = GetMidpointWithHeight();
+
+        collision.gameObject.GetComponent<Rigidbody>().AddForce((midpoint - collision.transform.position).normalized * jumpForce, ForceMode.Impulse);
+    }
+
+    private void ControledJump(Collider collision)
+    {
+        throw new NotImplementedException();
     }
 
     Vector3 GetMidpoint()
     {
         return (transform.position + jumpTarget.position) / 2;
+    }
+
+    Vector3 GetMidpointWithHeight()
+    {
+        return (transform.position + jumpTarget.position) / 2 + transform.up.normalized * jumpHeight;
     }
 
     IEnumerator ResetLaunch()
