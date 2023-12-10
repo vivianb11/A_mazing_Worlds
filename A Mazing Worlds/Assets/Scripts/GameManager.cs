@@ -51,25 +51,14 @@ public class GameManager : MonoBehaviour
                 if (level.levelNumber != 1)
                     DeActivatePlanet(level.gameObject);
             }
-
         }
+
+        GameInput.instance.SetFlatGyroRotation();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameState == GameState.Playing)
-            {
-                gameState = GameState.Paused;
-                Time.timeScale = 0;
-            }
-            else if (gameState == GameState.Paused)
-            {
-                gameState = GameState.Playing;
-                Time.timeScale = 1;
-            }
-        }
+        
     }
 
     private void OnGUI()
