@@ -23,18 +23,12 @@ public class PlayerMovement : MonoBehaviour
         Input.gyro.enabled = true;
     }
 
-    private void Start()
-    {
-        GameInput.instance.SetFlatGyroRotation();
-    }
-
     void FixedUpdate()
     {
         Move();
 
         //if the player doubletaps within a sertain delay the screen, the flat gyro will be reset
         DoubleTap();
-        //SetFlatGyroRotation();
     }
 
     public void Move()
@@ -61,14 +55,9 @@ public class PlayerMovement : MonoBehaviour
                     GameInput.instance.SetFlatGyroRotation();
                     break;
                 }
-                tapTime -= Time.deltaTime;
+                tapTime -= Time.fixedDeltaTime;
             }
         }
-    }
-
-    public Vector3 GetMovementDirection()
-    {
-        return new Vector3(Input.gyro.gravity.x, Input.gyro.gravity.y, 0) - flatGyro;
     }
 }
 

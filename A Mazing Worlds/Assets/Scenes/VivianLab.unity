@@ -304,6 +304,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
+        type: 3}
+      propertyPath: minMaxXYaw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
+        type: 3}
+      propertyPath: minMaxXYaw.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
+        type: 3}
+      propertyPath: minMaxXYaw.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128736803212647875, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
+        type: 3}
+      propertyPath: minMaxYPitch
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6944658871725874326, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
         type: 3}
       propertyPath: m_LocalPosition.x
