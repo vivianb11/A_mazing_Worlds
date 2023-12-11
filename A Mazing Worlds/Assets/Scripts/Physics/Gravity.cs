@@ -41,7 +41,7 @@ public class Gravity: MonoBehaviour
             if (Vector3.Distance(transform.position, attractedObjects[i].position) > gravityRange)
                 continue;
 
-            attractedObjects[i].GetComponent<Rigidbody>().AddForce((transform.position - attractedObjects[i].position) * gravityForce);
+            attractedObjects[i].GetComponent<Rigidbody>().AddForce((transform.position - attractedObjects[i].position).normalized * gravityForce);
         }
     }
 
