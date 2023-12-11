@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class ButtonBehavior : MonoBehaviour
 {
-    public UnityEvent onTriggerEnter;
+    public UnityEvent onPlayerTriggerEnter;
 
     private void OnTriggerEnter(Collider other)
     {
-            onTriggerEnter.Invoke();
+        if (other.CompareTag("Player"))
+            onPlayerTriggerEnter.Invoke();
     }
 }
