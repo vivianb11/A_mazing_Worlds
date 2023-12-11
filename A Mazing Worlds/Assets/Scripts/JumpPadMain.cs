@@ -7,25 +7,40 @@ using UnityEngine.Events;
 
 public class JumpPadMain : MonoBehaviour
 {
+    #region Variables
     enum JumpPadMode { Simple, Controled, Charging};
     enum JumpPadState { Idle, Launching, Cooldown };
 
+    [SerializeField] Transform _jumpTarget;
+
+    [Header("Jump pad mode")]
     [SerializeField] JumpPadMode jumpPadMode = JumpPadMode.Simple;
 
+    [Header("Jump pad settings")]
+    [SerializeField] bool startVelocityZero = false;
+    [SerializeField] bool desactivatesAirControl = false;
+    [Space]
     [SerializeField] float jumpForce = 20;
     [SerializeField] float jumpHeight = 5;
-
-    public Transform jumpTarget;
-
+    [Space]
     [SerializeField] float cooldown = 1;
+
+    [Header("Visual")]
+    [Min(1)]
+    [SerializeField] float forceFactor = 2.5f;
     bool playerLaunched = false;
 
     // different states of the jump pad
     JumpPadState jumpPadState = JumpPadState.Idle;
+    #endregion
 
-    private void Update()
+    private void Awake()
     {
+        if(!_jumpTarget)
+            _jumpTarget = transform.GetChild(0);
 
+        if (!_jumpTarget)
+            Debug.LogError("No jump target found");
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -35,6 +50,7 @@ public class JumpPadMain : MonoBehaviour
         {
             print("Player launched");
             playerLaunched = true;
+            jumpPadState = JumpPadState.Launching;
 
             switch (jumpPadMode)
             {
@@ -59,56 +75,93 @@ public class JumpPadMain : MonoBehaviour
         if(jumpPadMode == JumpPadMode.Simple)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position, transform.up.normalized * jumpForce);
+            Gizmos.DrawRay(transform.position, transform.up.normalized * (jumpForce/forceFactor));
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position + transform.up.normalized * 0.1f, 0.1f);
+
         }
         else if(jumpPadMode == JumpPadMode.Controled || jumpPadMode == JumpPadMode.Charging)
         {
             Gizmos.color = Color.green;
 
             Gizmos.DrawWireSphere(transform.position + transform.up.normalized * 0.1f, 0.1f);
-            Gizmos.DrawWireSphere(jumpTarget.position + jumpTarget.up.normalized * 0.1f, 0.1f);
+            Gizmos.DrawWireSphere(_jumpTarget.position + _jumpTarget.up.normalized * 0.1f, 0.1f);
 
-            Vector3 midpoint = GetMidpointWithHeight();
+            Vector3 midpoint = GetMidpointWithHeight(transform.position, _jumpTarget.position);
 
             Gizmos.DrawLine(transform.position + transform.up.normalized * 0.1f, midpoint);
-            Gizmos.DrawLine(jumpTarget.position + jumpTarget.up.normalized * 0.1f, midpoint);
+            Gizmos.DrawLine(_jumpTarget.position + _jumpTarget.up.normalized * 0.1f, midpoint);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position + transform.up.normalized * 0.2f, ((midpoint + transform.up.normalized * 0.1f) - (transform.position + transform.up.normalized * 0.2f)).normalized * jumpForce);
+            Gizmos.DrawRay(transform.position + transform.up.normalized * 0.2f, ((midpoint + transform.up.normalized * 0.1f) - (transform.position + transform.up.normalized * 0.2f)).normalized * (jumpForce/forceFactor));
         }
     }
 
     void SimpleJump(Collider collision)
     {
+        if (startVelocityZero)
+            collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        if (desactivatesAirControl)
+            collision.gameObject.GetComponent<PlayerMovement>().DesactivateAirControl();
+
         collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.up.normalized * jumpForce, ForceMode.Impulse);
-    }
-
-    private void ChargingJump(Collider collision)
-    {
-        Vector3 midpoint = GetMidpointWithHeight();
-
-        collision.gameObject.GetComponent<Rigidbody>().AddForce((midpoint - collision.transform.position).normalized * jumpForce, ForceMode.Impulse);
     }
 
     private void ControledJump(Collider collision)
     {
+        Vector3 midpoint = GetMidpointWithHeight(collision.transform.position, _jumpTarget.position);
+
+        if (startVelocityZero)
+            collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        if (desactivatesAirControl)
+            collision.gameObject.GetComponent<PlayerMovement>().DesactivateAirControl();
+
+        collision.gameObject.GetComponent<Rigidbody>().AddForce((midpoint - collision.transform.position).normalized * jumpForce, ForceMode.Impulse);
+    }
+
+    private void ChargingJump(Collider collision)
+    {
         throw new NotImplementedException();
+
+        //Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+
+        //for(int i = 0; i < 100; i++)
+        //{
+        //    if (Vector3.Dot(collision.transform.position - transform.position, transform.up) > 0.1f)
+        //        rb.AddForce((this.transform.position - collision.transform.position).normalized * jumpForce * 0.2f, ForceMode.Force);
+        //    else
+        //        break;
+        //}
+
+        //Vector3 midpoint = GetMidpointWithHeight(collision.transform.position, _jumpTarget.position);
+
+        //if (startVelocityZero)
+        //    rb.velocity = Vector3.zero;
+
+        //rb.AddForce((midpoint - collision.transform.position).normalized * jumpForce, ForceMode.Impulse);
     }
 
     Vector3 GetMidpoint()
     {
-        return (transform.position + jumpTarget.position) / 2;
+        return (transform.position + _jumpTarget.position) / 2;
     }
 
-    Vector3 GetMidpointWithHeight()
+    Vector3 GetMidpointWithHeight(Vector3 point1, Vector3 point2)
     {
-        return (transform.position + jumpTarget.position) / 2 + transform.up.normalized * jumpHeight;
+        return (point1 + point2) / 2 + transform.up.normalized * jumpHeight;
     }
 
     IEnumerator ResetLaunch()
     {
+        jumpPadState = JumpPadState.Cooldown;
+
         // wait for the cooldown to end and reset the playerLaunched bool
         yield return new WaitForSeconds(cooldown);
+
+        jumpPadState = JumpPadState.Idle;
         playerLaunched = false;
     }
 }

@@ -172,8 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1eee42f8da074449f0350bec58a001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumpTarget: {fileID: 8240265283419842488}
   jumpPadMode: 1
-  jumpForce: 5
-  jumpHeight: 5
-  jumpTarget: {fileID: 8240265283419842488}
+  startVelocityZero: 1
+  desactivatesAirControl: 1
+  jumpForce: 20
+  jumpHeight: 10
   cooldown: 1
+  forceFactor: 2.5

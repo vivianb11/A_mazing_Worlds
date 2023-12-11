@@ -16,9 +16,14 @@ public class GameInput : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] float minMaxXYaw, minMaxYPitch;
 
-    private void Start()
+    private void Awake()
     {
-        instance ??= this;
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this);
+
+        Input.gyro.enabled = true;
 
         if (minMaxXYaw == 0 && minMaxYPitch == 0)
             Debug.LogWarning("minMaxXYaw and minMaxYPitch are both set to 0, this means that the gyro will not be clamped" + "If you want to change those values go to the GameManager/GameInput Script");

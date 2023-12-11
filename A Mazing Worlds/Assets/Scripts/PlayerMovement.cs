@@ -7,25 +7,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float playerSpeed;
     [SerializeField] float maxVelocity;
 
-    private Vector3 flatGyro;
-
     [SerializeField] Transform movementOrientation;
     private Rigidbody rb;
+
+    private bool airControl = true;
 
     void Awake()
     {
         if (!movementOrientation)
-            movementOrientation = Camera.main.transform;
+            movementOrientation = GameObject.FindGameObjectWithTag("ControlerPoint").transform;
+
+        if (!movementOrientation)
+            Debug.LogError("No movement orientation found" + "Please place the Camera Pivot Prefab");
 
         rb = GetComponent<Rigidbody>();
-
-        // Enable the gyroscope
-        Input.gyro.enabled = true;
     }
 
     void FixedUpdate()
     {
-        Move();
+        if(airControl)
+            Move();
+        else if (!airControl && Physics.Raycast(transform.position, movementOrientation.forward, 1.1f))
+            airControl = true;
 
         //if the player doubletaps within a sertain delay the screen, the flat gyro will be reset
         DoubleTap();
@@ -46,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            float tapTime = 0.5f;
+            float tapTime = 1f;
             while (tapTime > 0)
             {
                 if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -58,6 +61,23 @@ public class PlayerMovement : MonoBehaviour
                 tapTime -= Time.fixedDeltaTime;
             }
         }
+    }
+
+    public void DesactivateAirControl()
+    {
+        StartCoroutine(AirControlDesactivator());
+    }
+    
+    IEnumerator AirControlDesactivator()
+    {
+        yield return new WaitUntil(() => !Physics.Raycast(transform.position, movementOrientation.forward, 1.1f));
+
+        airControl = false;
+    }
+
+    public bool GetAirControl()
+    {
+        return airControl;
     }
 }
 

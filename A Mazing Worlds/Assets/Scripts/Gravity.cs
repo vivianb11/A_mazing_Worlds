@@ -47,10 +47,10 @@ public class Gravity: MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = new Color(0,0,1,0.25f);
         if (showGravityRange)
         {
-            Gizmos.DrawWireSphere(transform.position, gravityRange);
+            Gizmos.DrawSphere(transform.position, gravityRange);
         }
     }
 }
