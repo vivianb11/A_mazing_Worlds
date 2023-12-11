@@ -18,7 +18,7 @@ public class CameraFolow : MonoBehaviour
     [Header("Smooth Mode : Exponential")]
     [SerializeField] float exponentialFactor = 2f;
 
-    [Header("Smooth Mode : Linear"), InfoBox("The differnece * the factor")]
+    [Header("Smooth Mode : Linear")]
     [SerializeField] float linearFactor = 1f;
 
     [Header("Smooth Mode : Constant")]

@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitUntil(() => !Physics.Raycast(transform.position, movementOrientation.forward, 1.1f));
 
-        airControl = false;
+        airControl = true;
     }
 
     public bool GetAirControl()
