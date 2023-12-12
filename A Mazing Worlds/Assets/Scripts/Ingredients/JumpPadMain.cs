@@ -1,15 +1,11 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class JumpPadMain : MonoBehaviour
+public class JumpPadMain : StateClass
 {
     #region Variables
     enum JumpPadMode { Simple, Controled, Charging};
-    enum JumpPadState { Idle, Launching, Cooldown };
 
     [SerializeField] Transform _jumpTarget;
 
@@ -21,7 +17,6 @@ public class JumpPadMain : MonoBehaviour
     [SerializeField] bool desactivatesAirControl = false;
     [Space]
     [SerializeField] float jumpForce = 20;
-    [SerializeField] float jumpHeight = 5;
     [Space]
     [SerializeField] float cooldown = 1;
 
@@ -29,9 +24,6 @@ public class JumpPadMain : MonoBehaviour
     [Min(1)]
     [SerializeField] float forceFactor = 2.5f;
     bool playerLaunched = false;
-
-    // different states of the jump pad
-    JumpPadState jumpPadState = JumpPadState.Idle;
     #endregion
 
     private void Awake()
@@ -50,7 +42,7 @@ public class JumpPadMain : MonoBehaviour
         {
             print("Player launched");
             playerLaunched = true;
-            jumpPadState = JumpPadState.Launching;
+            currentState = EState.Launching;
 
             switch (jumpPadMode)
             {
@@ -87,14 +79,10 @@ public class JumpPadMain : MonoBehaviour
 
             Gizmos.DrawWireSphere(transform.position + transform.up.normalized * 0.1f, 0.1f);
             Gizmos.DrawWireSphere(_jumpTarget.position + _jumpTarget.up.normalized * 0.1f, 0.1f);
-
-            Vector3 midpoint = GetMidpointWithHeight(transform.position, _jumpTarget.position);
-
-            Gizmos.DrawLine(transform.position + transform.up.normalized * 0.1f, midpoint);
-            Gizmos.DrawLine(_jumpTarget.position + _jumpTarget.up.normalized * 0.1f, midpoint);
+            Gizmos.DrawLine(transform.position, _jumpTarget.position);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position + transform.up.normalized * 0.2f, ((midpoint + transform.up.normalized * 0.1f) - (transform.position + transform.up.normalized * 0.2f)).normalized * (jumpForce/forceFactor));
+            Gizmos.DrawRay(transform.position, (_jumpTarget.position - transform.position).normalized * (jumpForce/forceFactor));
         }
     }
 
@@ -111,15 +99,13 @@ public class JumpPadMain : MonoBehaviour
 
     private void ControledJump(Collider collision)
     {
-        Vector3 midpoint = GetMidpointWithHeight(collision.transform.position, _jumpTarget.position);
-
         if (startVelocityZero)
             collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         if (desactivatesAirControl)
             collision.gameObject.GetComponent<PlayerMovement>().DesactivateAirControl();
 
-        collision.gameObject.GetComponent<Rigidbody>().AddForce((midpoint - collision.transform.position).normalized * jumpForce, ForceMode.Impulse);
+        collision.gameObject.GetComponent<Rigidbody>().AddForce((_jumpTarget.position - collision.transform.position).normalized * jumpForce, ForceMode.Impulse);
     }
 
     private void ChargingJump(Collider collision)
@@ -144,24 +130,14 @@ public class JumpPadMain : MonoBehaviour
         //rb.AddForce((midpoint - collision.transform.position).normalized * jumpForce, ForceMode.Impulse);
     }
 
-    Vector3 GetMidpoint()
-    {
-        return (transform.position + _jumpTarget.position) / 2;
-    }
-
-    Vector3 GetMidpointWithHeight(Vector3 point1, Vector3 point2)
-    {
-        return (point1 + point2) / 2 + transform.up.normalized * jumpHeight;
-    }
-
     IEnumerator ResetLaunch()
     {
-        jumpPadState = JumpPadState.Cooldown;
+        currentState = EState.Cooldown;
 
         // wait for the cooldown to end and reset the playerLaunched bool
         yield return new WaitForSeconds(cooldown);
 
-        jumpPadState = JumpPadState.Idle;
+        currentState = EState.Idle;
         playerLaunched = false;
     }
 }

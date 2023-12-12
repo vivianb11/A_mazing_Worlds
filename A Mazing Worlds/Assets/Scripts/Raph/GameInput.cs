@@ -1,8 +1,3 @@
-using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class GameInput : MonoBehaviour
@@ -18,10 +13,10 @@ public class GameInput : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
+        if (instance && instance != this)
             Destroy(this);
+        else
+            instance = this;
 
         Input.gyro.enabled = true;
 
@@ -31,25 +26,27 @@ public class GameInput : MonoBehaviour
 
     public Vector2 GetGyro()
     {
-        Vector2 unclaptedDirection = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y) - new Vector2(flatGyro.x, flatGyro.y) + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        
-        Vector2 claptedDirection;
-        
-        if (minMaxXYaw == 0 && minMaxYPitch == 0)
-            claptedDirection = unclaptedDirection.normalized;
-        else
-            claptedDirection = new Vector2(Mathf.Clamp(unclaptedDirection.x, -minMaxXYaw, minMaxXYaw), Mathf.Clamp(unclaptedDirection.y, -minMaxYPitch, minMaxYPitch));
+        if (!accelerationEnabled)
+            return Vector2.zero;
 
-        // retourn la valeur du gyro si l'acceleration est activée, sinon retourne un vecteur nul
-        return accelerationEnabled ? claptedDirection : new Vector2();
+        Vector2 unclaptedDirection = GetGyroRaw();
+
+        if (minMaxXYaw == 0 && minMaxYPitch == 0)
+            return unclaptedDirection;
+        
+        Vector2 claptedDirection = new Vector2(Mathf.Clamp(unclaptedDirection.x, -minMaxXYaw, minMaxXYaw), Mathf.Clamp(unclaptedDirection.y, -minMaxYPitch, minMaxYPitch));
+
+        return claptedDirection;
     }
 
     public Vector2 GetGyroRaw()
     {
+        if (!accelerationEnabled)
+            return Vector2.zero;
+
         Vector2 unclaptedDirection = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y) - new Vector2(flatGyro.x, flatGyro.y) + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        // retourn la valeur du gyro si l'acceleration est activée, sinon retourne un vecteur null
-        return accelerationEnabled ? unclaptedDirection : new Vector2();
+        return unclaptedDirection;
     }
 
     public void SetFlatGyroRotation()

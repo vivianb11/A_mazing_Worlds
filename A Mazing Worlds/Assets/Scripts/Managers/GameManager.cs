@@ -1,12 +1,11 @@
-using System.Collections;
+using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using NaughtyAttributes;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance {get; private set;}
+    public static GameManager instance { get; private set; }
 
     public List<Transform> players;
 
@@ -21,13 +20,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null && instance != this)
-        {
+        if (instance && instance != this)
             Destroy(this);
-        }
         else
-        instance = this;
+            instance = this;
 
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         players = new();
@@ -39,18 +41,14 @@ public class GameManager : MonoBehaviour
     {
         levels = GameObject.FindGameObjectsWithTag("Planet").Select(x => x.GetComponent<LevelManager>()).ToList();
 
-        if (levels.Count == 0)
+        Debug.Assert(levels.Count == 0, "No levels found" + "Check the the Planet Tag Has been well put on the parent");
+        
+        levels.Sort((x, y) => x.levelNumber.CompareTo(y.levelNumber));
+
+        foreach (var level in levels)
         {
-            Debug.LogError("No levels found" + "Check the the Planet Tag Has been well put on the parent");
-        }
-        else
-        {
-            levels.Sort((x, y) => x.levelNumber.CompareTo(y.levelNumber));
-            foreach (var level in levels)
-            {
-                if (level.levelNumber != 1)
-                    DeActivatePlanet(level.gameObject);
-            }
+            if (level.levelNumber != 1)
+                DeActivatePlanet(level.gameObject);
         }
 
         GameInput.instance.SetFlatGyroRotation();
@@ -58,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 
     private void OnGUI()

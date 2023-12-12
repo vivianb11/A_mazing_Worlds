@@ -8,7 +8,6 @@ public class SlidingWallBehavior : MonoBehaviour
     [SerializeField] float slidingWallSpeed;
     [SerializeField] float maxVelocity;
     [SerializeField] float minVelocity;
-    [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Rigidbody rb;
 
 
@@ -16,7 +15,6 @@ public class SlidingWallBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
