@@ -1,4 +1,5 @@
 using UnityEngine;
+using NaughtyAttributes;
 
 public class GameInput : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class GameInput : MonoBehaviour
         return unclaptedDirection;
     }
 
+    [Button]
     public void SetFlatGyroRotation()
     {
         flatGyro = new Vector3(Input.gyro.gravity.x, Input.gyro.gravity.y, 0);
