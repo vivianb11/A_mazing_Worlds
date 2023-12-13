@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
@@ -15,7 +13,12 @@ public class LevelManager : MonoBehaviour
     public bool timer;
     public float time;
 
-    public Collider finish, start;
+    public Transform finish, start;
+
+    [Header("Level Events")]
+    public UnityEvent onLevelStart;
+    public UnityEvent onLevelEnd;
+    public UnityEvent onRespawn;
 
     private void Awake()
     {
@@ -32,5 +35,13 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void Respawn()
+    {
+        onRespawn.Invoke();
+
+        GameManager.instance.players[0].position = start.position;
+        GameManager.instance.players[0].GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }

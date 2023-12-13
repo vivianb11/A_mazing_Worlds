@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
 
     public List<LevelManager> levels;
 
-    public float currentLevel = 1;
+    public Camera mainCamera;
+    public CameraFolow cameraFolow;
+
+    public int currentLevel = 1;
 
     Canvas pauseMenu;
 
@@ -35,6 +38,9 @@ public class GameManager : MonoBehaviour
         players = new();
         levels = new();
         SetPlayers();
+
+        mainCamera = Camera.main;
+        cameraFolow = mainCamera.GetComponent<CameraFolow>();
     }
 
     private void Start()
@@ -59,71 +65,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void OnGUI()
-    {
-
-        if (gameState == GameState.Playing)
-        {
-            if (GUI.Button(new Rect(Screen.width - 100, 0, 100, 100), "Pause"))
-            {
-                gameState = GameState.Paused;
-                Time.timeScale = 0;
-            }
-        }
-
-        if (gameState == GameState.Paused)
-        {
-            if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100), "Resume"))
-            {
-                gameState = GameState.Playing;
-                Time.timeScale = 1;
-            }
-        }
-        else if (gameState == GameState.GameOver)
-        {
-            if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100), "Restart"))
-            {
-                gameState = GameState.Playing;
-                Time.timeScale = 1;
-            }
-        }
-        else if (gameState == GameState.Win)
-        {
-            if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100), "Restart"))
-            {
-                gameState = GameState.Playing;
-                Time.timeScale = 1;
-            }
-        }
-        if (gameState == GameState.Paused || gameState == GameState.GameOver || gameState == GameState.Win)
-        {
-            if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 + 50, 100, 100), "Quit"))
-            {
-                Application.Quit();
-            }
-        }
-        if (gameState == GameState.GameOver)
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 150, 100, 100), "Game Over");
-        }
-        else if (gameState == GameState.Win)
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 150, 100, 100), "You Win");
-        }
-        if (gameState == GameState.Paused)
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 150, 100, 100), "Paused");
-        }
-        // button to reset the gyro's flat position
-        if (gameState == GameState.Playing)
-        {
-            if (GUI.Button(new Rect(Screen.width - 100, Screen.height - 100, 100, 100), "Reset Gyro"))
-            {
-                GameInput.instance.SetFlatGyroRotation();
-            }
-        }
-    }
-
     private void DeActivatePlanet(GameObject level)
     {
         level.transform.GetChild(0).gameObject.SetActive(false);
@@ -134,6 +75,28 @@ public class GameManager : MonoBehaviour
     {
         level.transform.GetChild(0).gameObject.SetActive(true);
         level.transform.GetChild(2).gameObject.SetActive(true);
+    }
+
+    [Button]
+    public void Respawn()
+    {
+        if(players.Count <= 0)
+        {
+            levels[currentLevel - 1].Respawn();
+        }
+        else
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (i > 1)
+                {
+                    Destroy(players[i].gameObject);
+                }
+                else
+                    levels[currentLevel - 1].Respawn();
+
+            }
+        }
     }
 
     [Button]

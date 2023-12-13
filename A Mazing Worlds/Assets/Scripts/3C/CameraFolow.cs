@@ -1,4 +1,5 @@
 using UnityEngine;
+using NaughtyAttributes;
 
 public class CameraFolow : MonoBehaviour
 {
@@ -7,18 +8,20 @@ public class CameraFolow : MonoBehaviour
     enum SmoothMode { Curve, Exponential, linear, constant }
     [SerializeField] SmoothMode smoothMode = SmoothMode.Curve;
 
-    [Header("Smooth Mode : Curve")]
+    [Header("Smooth Mode : Curve"), ShowIf("smoothMode", SmoothMode.Curve)]
     [SerializeField] AnimationCurve translationCurve;
+    [ShowIf("smoothMode", SmoothMode.Curve)]
     [SerializeField] AnimationCurve rotationCurve;
 
-    [Header("Smooth Mode : Exponential")]
+    [Header("Smooth Mode : Exponential"), ShowIf("smoothMode", SmoothMode.Exponential)]
     [SerializeField] float exponentialFactor = 2f;
 
-    [Header("Smooth Mode : Linear")]
+    [Header("Smooth Mode : Linear"), ShowIf("smoothMode", SmoothMode.linear)]
     [SerializeField] float linearFactor = 1f;
 
-    [Header("Smooth Mode : Constant")]
+    [Header("Smooth Mode : Constant"), ShowIf("smoothMode", SmoothMode.constant)]
     [SerializeField] float translationSpeedConstant = 0.1f;
+    [ShowIf("smoothMode", SmoothMode.constant)]
     [SerializeField] float rotationSpeedConstant = 0.1f;
 
     private void Awake()
@@ -27,13 +30,14 @@ public class CameraFolow : MonoBehaviour
             target = GameObject.Find("ControlerPoint").transform;
         else
             print("ControlerPoint not found : Please add the CameraPivot Prefab");
+        
+        SetCameraPosition(target);
+        SetCameraRotation(target);
     }
 
     private void Start()
     {
-        //sets the position and rotation of the camera to the target
-        SetCameraPosition(target);
-        SetCameraRotation(target);
+
     }
 
     void FixedUpdate()
