@@ -76,4 +76,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return airControl;
     }
+
+    public void Impluls(float force)
+    {
+        rb.AddForce(rb.velocity.normalized * force, ForceMode.Impulse);
+    }
 }
