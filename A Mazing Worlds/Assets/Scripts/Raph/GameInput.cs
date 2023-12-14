@@ -62,7 +62,7 @@ public class GameInput : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(GetGyroPercent());
+        
     }
 
     [Button]

@@ -1595,10 +1595,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 592907005493498666, guid: 12b16e1d74bf479448b8b90640a8fed4,
+        type: 3}
+      propertyPath: gravityForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 919885753680236848, guid: 12b16e1d74bf479448b8b90640a8fed4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -285.5835
+      value: -390.7639
       objectReference: {fileID: 0}
     - target: {fileID: 919885753680236848, guid: 12b16e1d74bf479448b8b90640a8fed4,
         type: 3}
@@ -1738,7 +1743,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 238356560}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6154916109611487481, guid: 12b16e1d74bf479448b8b90640a8fed4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2075498282}
   m_SourcePrefab: {fileID: 100100000, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
 --- !u!1001 &1175015833
 PrefabInstance:
@@ -2383,6 +2392,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2075498275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6154916109611487481, guid: 12b16e1d74bf479448b8b90640a8fed4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1157785571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2075498282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075498275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 903766775}
+  m_PlayOnAwake: 1
+  m_LoopMode: 1
+  m_Method: 0
+  m_Duration: 50
+  m_MaxSpeed: 0.062832974
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 2
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0
 --- !u!1001 &2098755731
 PrefabInstance:
   m_ObjectHideFlags: 0
