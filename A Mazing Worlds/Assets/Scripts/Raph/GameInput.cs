@@ -12,6 +12,8 @@ public class GameInput : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] float minMaxXYaw, minMaxYPitch;
 
+    [SerializeField] Vector2 deadZone;
+
     private void Awake()
     {
         if (instance && instance != this)
@@ -37,6 +39,9 @@ public class GameInput : MonoBehaviour
         
         Vector2 claptedDirection = new Vector2(Mathf.Clamp(unclaptedDirection.x, -minMaxXYaw, minMaxXYaw), Mathf.Clamp(unclaptedDirection.y, -minMaxYPitch, minMaxYPitch));
 
+        claptedDirection.x = Mathf.Abs(claptedDirection.x) < deadZone.x ? 0 : claptedDirection.x;
+        claptedDirection.y = Mathf.Abs(claptedDirection.y) < deadZone.y ? 0 : claptedDirection.y;
+
         return claptedDirection;
     }
 
@@ -48,6 +53,16 @@ public class GameInput : MonoBehaviour
         Vector2 unclaptedDirection = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y) - new Vector2(flatGyro.x, flatGyro.y) + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         return unclaptedDirection;
+    }
+
+    public Vector2 GetGyroPercent()
+    {
+        return new Vector2(Mathf.Clamp((Mathf.Abs(GetGyro().x) - deadZone.x) / (minMaxXYaw - deadZone.x), 0, 1) * Mathf.Sign(GetGyro().x), Mathf.Clamp((Mathf.Abs(GetGyro().y) - deadZone.y) / (minMaxYPitch - deadZone.y), 0, 1) * Mathf.Sign(GetGyro().y));
+    }
+
+    private void Update()
+    {
+        Debug.Log(GetGyroPercent());
     }
 
     [Button]

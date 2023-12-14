@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float playerSpeed;
+    [SerializeField] float maxPlayerSpeed;
     [SerializeField] float maxVelocity;
 
     [SerializeField] Transform movementOrientation;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(airControl)
+        if(airControl || rb.velocity.sqrMagnitude < (maxVelocity * maxVelocity))
             Move();
         else if (!airControl && Physics.Raycast(transform.position, movementOrientation.forward, 1.1f))
             airControl = true;
@@ -35,13 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        Vector2 acceleration = GameInput.instance.GetGyro();
+        Vector2 direction = GameInput.instance.GetGyro();
+        Vector2 movement = direction * maxPlayerSpeed;
 
-        if (rb.velocity.sqrMagnitude < (maxVelocity * maxVelocity) && acceleration.sqrMagnitude > Mathf.Pow(0.05f, 2))
-        {
-            rb.AddForce(movementOrientation.right * acceleration.x * playerSpeed);
-            rb.AddForce(movementOrientation.up * acceleration.y * playerSpeed);
-        }
+        rb.AddForce(movementOrientation.right * movement.x);
+        rb.AddForce(movementOrientation.up * movement.y);
     }
 
     public void DoubleTap()

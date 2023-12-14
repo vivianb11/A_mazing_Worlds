@@ -47,7 +47,8 @@ public class GameManager : MonoBehaviour
     {
         levels = GameObject.FindGameObjectsWithTag("Planet").Select(x => x.GetComponent<LevelManager>()).ToList();
 
-        Debug.Assert(levels.Count == 0, "No levels found" + "Check the the Planet Tag Has been well put on the parent");
+        if (levels.Count <= 0)
+            Debug.LogWarning("No levels found" + "Check the the Planet Tag Has been well put on the parent");
         
         levels.Sort((x, y) => x.levelNumber.CompareTo(y.levelNumber));
 
@@ -89,12 +90,9 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < players.Count; i++)
             {
                 if (i > 1)
-                {
                     Destroy(players[i].gameObject);
-                }
                 else
                     levels[currentLevel - 1].Respawn();
-
             }
         }
     }
