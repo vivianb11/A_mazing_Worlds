@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ObjectToAttract
   - Planet
+  - ControlerPoint
   layers:
   - Default
   - TransparentFX

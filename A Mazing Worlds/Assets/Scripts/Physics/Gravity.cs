@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Gravity: MonoBehaviour
@@ -41,16 +39,16 @@ public class Gravity: MonoBehaviour
             if (Vector3.Distance(transform.position, attractedObjects[i].position) > gravityRange)
                 continue;
 
-            attractedObjects[i].GetComponent<Rigidbody>().AddForce((transform.position - attractedObjects[i].position) * gravityForce);
+            attractedObjects[i].GetComponent<Rigidbody>().AddForce((transform.position - attractedObjects[i].position).normalized * gravityForce);
         }
     }
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = new Color(0,0,1,0.25f);
         if (showGravityRange)
         {
-            Gizmos.DrawWireSphere(transform.position, gravityRange);
+            Gizmos.DrawSphere(transform.position, gravityRange);
         }
     }
 }

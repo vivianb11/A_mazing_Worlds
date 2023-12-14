@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AcceleratorBehavior : MonoBehaviour
+public class AcceleratorBehavior : StateClass
 {
-    enum AcceleratorState { Idle, Launching, Cooldown };
     enum AcceleratorMode { SimpleBoost, ControledBoost };
 
     [SerializeField] AcceleratorMode acceleratorMode = AcceleratorMode.SimpleBoost;
@@ -12,9 +10,6 @@ public class AcceleratorBehavior : MonoBehaviour
     [SerializeField] float boostForce = 10;
     [SerializeField] float cooldown = 1;
     bool playerAccelerated = false;
-
-    // different states of the jump pad
-    AcceleratorState acceleratorState = AcceleratorState.Idle;
 
     private void Update()
     {
@@ -28,7 +23,7 @@ public class AcceleratorBehavior : MonoBehaviour
         {
             print("Player Accelerated");
             playerAccelerated = true;
-            acceleratorState = AcceleratorState.Launching;
+            currentState = EState.Launching;
 
             switch (acceleratorMode)
             {
@@ -67,7 +62,7 @@ public class AcceleratorBehavior : MonoBehaviour
             case AcceleratorMode.ControledBoost:
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(transform.position + transform.up*0.15f, 0.05f);
-                Gizmos.DrawLine(transform.position + transform.up * 0.15f, transform.position + transform.up * 0.15f + transform.forward.normalized * boostForce);
+                Gizmos.DrawLine(transform.position + transform.up * 0.15f, transform.position + transform.up * 0.15f + transform.forward.normalized * boostForce / 10);
                 break;
         }
     }
@@ -76,10 +71,10 @@ public class AcceleratorBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         
-        acceleratorState = AcceleratorState.Cooldown;
+        currentState = EState.Cooldown;
         yield return new WaitForSeconds(duration - 0.1f);
         
-        acceleratorState = AcceleratorState.Idle;
+        currentState = EState.Idle;
         playerAccelerated = false;
     }
 }

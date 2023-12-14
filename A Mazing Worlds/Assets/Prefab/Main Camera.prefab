@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 384205114569319197}
   - component: {fileID: 7017605828970051914}
   - component: {fileID: 3695822768325131334}
-  - component: {fileID: 546555502053903044}
   - component: {fileID: 4018451910267929034}
   m_Layer: 0
   m_Name: Main Camera
@@ -67,7 +66,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 1500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -94,24 +93,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72028093057244577}
   m_Enabled: 1
---- !u!114 &546555502053903044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72028093057244577}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b935553d852dbd44dae15f9028bb6d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeDuration: 0.5
-  shakeStrength: 0.1
-  shakeVibrato: 10
-  shakeRandomness: 90
-  shakeFadeOut: 1
-  shakeSnapping: 0
 --- !u!114 &4018451910267929034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,11 +119,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  translationSpeed: 0.1
-  rotationSpeed: 0.1
   exponentialFactor: 0.1
-  translationBaseSpeed: 1
-  rotationBaseSpeed: 1
   linearFactor: 0.1
   translationSpeedConstant: 1
   rotationSpeedConstant: 1

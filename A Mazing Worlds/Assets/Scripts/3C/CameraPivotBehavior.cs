@@ -125,7 +125,6 @@ public class CameraPivotBehavior : MonoBehaviour
 
     void SetRotation()
     {
-        // Smoothly interpolate between the current rotation and the target rotation
         transform.LookAt(_target.position, transform.up);
     }
 

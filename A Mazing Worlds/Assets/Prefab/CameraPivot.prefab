@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 993209362507893479}
   m_Layer: 0
   m_Name: ControlerPoint
-  m_TagString: Untagged
+  m_TagString: ControlerPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

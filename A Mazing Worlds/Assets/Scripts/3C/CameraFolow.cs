@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+using NaughtyAttributes;
 
 public class CameraFolow : MonoBehaviour
 {
@@ -10,22 +8,20 @@ public class CameraFolow : MonoBehaviour
     enum SmoothMode { Curve, Exponential, linear, constant }
     [SerializeField] SmoothMode smoothMode = SmoothMode.Curve;
 
-    [Header("Smooth Mode : Curve")]
+    [Header("Smooth Mode : Curve"), ShowIf("smoothMode", SmoothMode.Curve)]
     [SerializeField] AnimationCurve translationCurve;
+    [ShowIf("smoothMode", SmoothMode.Curve)]
     [SerializeField] AnimationCurve rotationCurve;
 
-    [Header("Smooth Mode : Exponential")]
-    [SerializeField] float translationSpeed = 0.1f;
-    [SerializeField] float rotationSpeed = 0.1f;
-    [SerializeField] float exponentialFactor = 0.1f;
+    [Header("Smooth Mode : Exponential"), ShowIf("smoothMode", SmoothMode.Exponential)]
+    [SerializeField] float exponentialFactor = 2f;
 
-    [Header("Smooth Mode : Linear")]
-    [SerializeField] float translationBaseSpeed = 1f;
-    [SerializeField] float rotationBaseSpeed = 1f;
-    [SerializeField] float linearFactor = 0.1f;
+    [Header("Smooth Mode : Linear"), ShowIf("smoothMode", SmoothMode.linear)]
+    [SerializeField] float linearFactor = 1f;
 
-    [Header("Smooth Mode : Constant")]
+    [Header("Smooth Mode : Constant"), ShowIf("smoothMode", SmoothMode.constant)]
     [SerializeField] float translationSpeedConstant = 0.1f;
+    [ShowIf("smoothMode", SmoothMode.constant)]
     [SerializeField] float rotationSpeedConstant = 0.1f;
 
     private void Awake()
@@ -34,25 +30,20 @@ public class CameraFolow : MonoBehaviour
             target = GameObject.Find("ControlerPoint").transform;
         else
             print("ControlerPoint not found : Please add the CameraPivot Prefab");
+        
+        SetCameraPosition(target);
+        SetCameraRotation(target);
     }
 
     private void Start()
     {
-        //sets the position and rotation of the camera to the target
-        SetCameraPosition(target);
+
     }
 
     void FixedUpdate()
     {
-
         SmoothTranslation();
         SmoothRotate();
-
-        //transform.position = Vector3.Lerp(transform.position, target.position, translationCurve.Evaluate(Vector3.Distance(transform.position, target.position)) * Time.fixedDeltaTime);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rotationCurve.Evaluate(Vector3.Distance(transform.position, target.position)) * Time.fixedDeltaTime);
-        
-        //transform.position = Vector3.Lerp(transform.position, target.position, translationSpeed * Time.fixedDeltaTime);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rotationSpeed * Time.fixedDeltaTime);
     }
 
     private void SmoothTranslation()
@@ -70,7 +61,7 @@ public class CameraFolow : MonoBehaviour
                 LerpFactor = Mathf.Pow(exponentialFactor, translationDistance) * Time.fixedDeltaTime;
                 break;
             case SmoothMode.linear:
-                LerpFactor = translationBaseSpeed / (translationDistance * linearFactor) * Time.fixedDeltaTime;
+                LerpFactor = translationDistance * linearFactor * Time.fixedDeltaTime;
                 break;
             case SmoothMode.constant:
                 LerpFactor = translationSpeedConstant * Time.fixedDeltaTime;
@@ -94,7 +85,7 @@ public class CameraFolow : MonoBehaviour
                 lerpFactor = Mathf.Pow(exponentialFactor, rotationDifference) * Time.fixedDeltaTime;
                 break;
             case SmoothMode.linear:
-                lerpFactor = rotationBaseSpeed / (rotationDifference * linearFactor) * Time.fixedDeltaTime;
+                lerpFactor = rotationDifference * linearFactor * Time.fixedDeltaTime;
                 break;
             case SmoothMode.constant:
                 lerpFactor = rotationSpeedConstant * Time.fixedDeltaTime;
@@ -107,5 +98,10 @@ public class CameraFolow : MonoBehaviour
     public void SetCameraPosition(Transform position)
     {
         this.transform.position = position.position;
+    }
+
+    public void SetCameraRotation(Transform rotation)
+    {
+        this.transform.rotation = rotation.rotation;
     }
 }

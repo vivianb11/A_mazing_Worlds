@@ -1,8 +1,3 @@
-using Codice.CM.Client.Differences;
-using log4net.Util;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
