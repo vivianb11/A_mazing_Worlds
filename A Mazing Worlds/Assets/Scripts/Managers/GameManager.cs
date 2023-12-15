@@ -2,6 +2,8 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Splines;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,16 +12,20 @@ public class GameManager : MonoBehaviour
     public List<Transform> players;
 
     public List<LevelManager> levels;
+    public List<SplineAnimate> splines;
 
     public Camera mainCamera;
     public CameraFolow cameraFolow;
 
+    public GameObject cameraPivot;
+
     public int currentLevel = 1;
 
-    Canvas pauseMenu;
+    public enum GameState { Playing, Paused, GameOver, FreeCam, Win };
+    public GameState gameState = GameState.Playing;
 
-    enum GameState { Playing, Paused, GameOver, FreeCam, Win };
-    GameState gameState = GameState.Playing;
+    [Foldout("Events")]
+    public UnityEvent onNextLevel, onFinishAllLevels;
 
     private void Awake()
     {
@@ -38,6 +44,7 @@ public class GameManager : MonoBehaviour
         players = new();
         levels = new();
         SetPlayers();
+        SetLevels();
 
         mainCamera = Camera.main;
         cameraFolow = mainCamera.GetComponent<CameraFolow>();
@@ -45,25 +52,41 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        levels = GameObject.FindGameObjectsWithTag("Planet").Select(x => x.GetComponent<LevelManager>()).ToList();
-
         if (levels.Count <= 0)
             Debug.LogWarning("No levels found" + "Check the the Planet Tag Has been well put on the parent");
-        
-        levels.Sort((x, y) => x.levelNumber.CompareTo(y.levelNumber));
 
+        levels.Sort((x, y) => x.levelNumber.CompareTo(y.levelNumber));
+        
         foreach (var level in levels)
         {
-            if (level.levelNumber != 1)
-                DeActivatePlanet(level.gameObject);
+            splines.Add(level.GetComponent<SplineAnimate>());
         }
 
-        GameInput.instance.SetFlatGyroRotation();
+        for (int i = 0; i < levels.Count; i++)
+        {
+            LevelManager level = levels[i];
+            SplineAnimate spline = splines[i];
+            if (level.levelNumber != currentLevel)
+            {
+                DeActivatePlanet(level.gameObject); 
+                spline.enabled = true;
+            }
+            else
+            {
+                ActivatePlanet(level.gameObject);
+                spline.enabled = false;
+            }
+        }
     }
 
     private void Update()
     {
-
+        if (Input.GetAxis("Vertical") > 0)
+            foreach (var spline in splines)
+                spline.Play();
+        else if (Input.GetAxis("Vertical") < 0)
+            foreach (var spline in splines)
+                spline.Pause(); 
     }
 
     private void DeActivatePlanet(GameObject level)
@@ -100,12 +123,48 @@ public class GameManager : MonoBehaviour
     [Button]
     public void NextLevel()
     {
+        if (currentLevel >= levels.Count)
+        {
+            Debug.Log("No more levels");
+            onFinishAllLevels.Invoke();
+            return;
+        }
+
+        GameObject actualLevel = levels[this.currentLevel - 1].gameObject;
+        SplineAnimate actualSpline = splines[this.currentLevel - 1];
+        
         currentLevel++;
+
+        GameObject nextLevel = levels[this.currentLevel - 1].gameObject;
+        
+        SplineAnimate nextSpline = splines[this.currentLevel - 1];
+
+        cameraFolow.enabled = false;
+
+        onNextLevel.Invoke();
+
+        nextSpline.enabled = false;
+        cameraPivot.transform.position = nextLevel.transform.position;
+        ActivatePlanet(nextLevel);
+        
+        Respawn();
+
+        cameraFolow.enabled = true;
+        cameraFolow.SetCameraPosition(cameraFolow.target);
+
+        DeActivatePlanet(actualLevel);
+
+        actualSpline.enabled = true;
     }
 
     private void SetPlayers()
     {
         players = GameObject.FindGameObjectsWithTag("Player").Select(x => x.transform).ToList();
+    }
+
+    private void SetLevels()
+    {
+        levels = GameObject.FindGameObjectsWithTag("Planet").Select(x => x.GetComponent<LevelManager>()).ToList();
     }
 
     public List<Transform> GetPlayers()

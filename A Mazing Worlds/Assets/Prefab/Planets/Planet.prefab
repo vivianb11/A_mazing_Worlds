@@ -6413,7 +6413,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 1
   levelName: 
-  timer: 0
+  planetStats: {fileID: 11400000, guid: 6db0bdcb9d3578844bc5e0034db40dd4, type: 2}
+  tries: 0
+  levelType: 2
   time: 0
   finish: {fileID: 2110792272745228100}
   start: {fileID: 4545424795892782942}

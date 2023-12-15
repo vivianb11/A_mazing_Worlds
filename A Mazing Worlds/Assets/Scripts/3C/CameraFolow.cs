@@ -4,7 +4,7 @@ using NaughtyAttributes;
 public class CameraFolow : MonoBehaviour
 {
     //object to copy position and rotation smoothly
-    [SerializeField] Transform target;
+    public Transform target;
     enum SmoothMode { Curve, Exponential, linear, constant }
     [SerializeField] SmoothMode smoothMode = SmoothMode.Curve;
 

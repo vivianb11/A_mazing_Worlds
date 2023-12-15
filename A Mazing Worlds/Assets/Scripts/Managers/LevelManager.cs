@@ -1,47 +1,86 @@
 using UnityEngine;
 using UnityEngine.Events;
+using NaughtyAttributes;
 
 public class LevelManager : MonoBehaviour
 {
+    #region Variables
+    public enum LevelType { CountDown, Timed, Endless };
+
     [Header("Level Info")]
     [Min(1)]
     public int levelNumber;
 
     public string levelName;
 
+    public PlanetStats planetStats;
+
+    public int tries;
+
     [Header("Level Carasteristics")]
-    public bool timer;
+    public LevelType levelType = LevelType.Endless;
+    [ShowIf("levelType", LevelType.CountDown)]
     public float time;
 
     public Transform finish, start;
 
-    [Header("Level Events")]
+    [Foldout("Events")]
     public UnityEvent onLevelStart;
+    [Foldout("Events")]
     public UnityEvent onLevelEnd;
+    [Foldout("Events")]
     public UnityEvent onRespawn;
+    #endregion
 
     private void Awake()
     {
         gameObject.tag = "Planet";
+
+        if (!planetStats)
+            planetStats = new();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void LevelStart()
     {
+        onLevelStart.Invoke();
 
+        if (levelType == LevelType.CountDown)
+            Invoke("LevelEnd", time);
+        if (levelType == LevelType.Timed)
+        {
+            time = 0;
+            
+            InvokeRepeating("Time", 1, 1);
+
+            tries = 0;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Time()
     {
+        time++;
+    }
 
+    public void LevelEnd()
+    {
+        if (levelType == LevelType.Timed)
+        {
+            CancelInvoke("Time");
+            planetStats.BestTime = time < planetStats.BestTime ? time : planetStats.BestTime;
+        }
+
+        planetStats.numberOfTrys = tries < planetStats.numberOfTrys ? tries : planetStats.numberOfTrys;
+
+        onLevelEnd.Invoke();
     }
 
     public void Respawn()
     {
-        onRespawn.Invoke();
-
         GameManager.instance.players[0].position = start.position;
         GameManager.instance.players[0].GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        tries++;
+        
+        onRespawn.Invoke();
     }
 }
