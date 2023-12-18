@@ -12,4 +12,9 @@ public class SkinsCosmetics : ScriptableObject
 
     [NaughtyAttributes.HideIf("random")]
     public Material skin;
+
+    public void SetSkin(Material material)
+    {
+        skin = material;
+    }
 }

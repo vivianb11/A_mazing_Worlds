@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   random: 0
   skins: []
-  skin: {fileID: 2100000, guid: 40e3a4f17896261448ee94f2a9acea90, type: 2}
+  skin: {fileID: 0}
