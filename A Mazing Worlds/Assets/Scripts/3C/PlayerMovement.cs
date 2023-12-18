@@ -29,8 +29,6 @@ public class PlayerMovement : MonoBehaviour
         else if (!airControl && Physics.Raycast(transform.position, movementOrientation.forward, 1.1f))
             airControl = true;
 
-        //if the player doubletaps within a sertain delay the screen, the flat gyro will be reset
-        DoubleTap();
     }
 
     public void Move()
@@ -40,24 +38,6 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(movementOrientation.right * movement.x);
         rb.AddForce(movementOrientation.up * movement.y);
-    }
-
-    public void DoubleTap()
-    {
-        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            float tapTime = 1f;
-            while (tapTime > 0)
-            {
-                if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
-                {
-                    print("Double tap");
-                    GameInput.instance.SetFlatGyroRotation();
-                    break;
-                }
-                tapTime -= Time.fixedDeltaTime;
-            }
-        }
     }
 
     public void DesactivateAirControl()
