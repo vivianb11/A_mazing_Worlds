@@ -1,18 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkinApplier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SkinsCosmetics skinsCosmetics;
+
+    private MeshRenderer meshRenderer;
+
+    private void Awake()
     {
-        
+        meshRenderer = this.transform.GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (skinsCosmetics.random)
+        {
+            int random = Random.Range(0, skinsCosmetics.skins.Length);
+            meshRenderer.material = skinsCosmetics.skins[random];
+
+            GameManager.instance.onNextLevel.AddListener(ApplySkin);
+        }
+    }
+
+    public void ApplySkin()
+    {
+        if (!skinsCosmetics.random)
+            return;
+
+        int random = Random.Range(0, skinsCosmetics.skins.Length);
+        meshRenderer.material = skinsCosmetics.skins[random];
     }
 }

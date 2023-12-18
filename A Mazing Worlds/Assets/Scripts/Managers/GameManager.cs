@@ -79,16 +79,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetAxis("Vertical") > 0)
-            foreach (var spline in splines)
-                spline.Play();
-        else if (Input.GetAxis("Vertical") < 0)
-            foreach (var spline in splines)
-                spline.Pause(); 
-    }
-
     private void DeActivatePlanet(GameObject level)
     {
         level.transform.GetChild(0).gameObject.SetActive(false);
