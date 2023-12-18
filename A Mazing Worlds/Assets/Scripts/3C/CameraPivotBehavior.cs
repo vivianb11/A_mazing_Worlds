@@ -45,46 +45,7 @@ public class CameraPivotBehavior : MonoBehaviour
     {
         SetRotation();
 
-        if (Input.touches.Length > 1)
-        {
-            if (!pinchActive)
-            {
-                finger1StartPos = Input.touches[0].position;
-                finger2StartPos = Input.touches[1].position;
-            }
-
-            pinchActive = true;
-
-            Vector2 finger1CurrentPos = Input.touches[0].position;
-            Vector2 finger2CurrentPos = Input.touches[1].position;
-
-            float startDistance = Vector2.Distance(finger1StartPos, finger2StartPos);
-            float currentDistance = Vector2.Distance(finger1CurrentPos, finger2CurrentPos);
-
-            float pinchDelta = currentDistance - startDistance;
-
-            if (Mathf.Abs(pinchDelta) > pinchThreshold)
-            {
-                // Pinch detected
-                if (pinchDelta > 0)
-                {
-                    // Pinch In
-                    pinchTransformAddition -= pinchSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    // Pinch Out
-                    pinchTransformAddition += pinchSpeed * Time.deltaTime;
-                }
-
-                pinchTransformAddition = math.clamp(pinchTransformAddition, minMaxZoom.x, minMaxZoom.y);
-            }
-
-        }
-        else
-        {
-            pinchActive = false;
-        }
+        SetZoom();
 
         CameraPlanetDistance();
 
@@ -114,6 +75,36 @@ public class CameraPivotBehavior : MonoBehaviour
             {
                 _target = player;
             }
+        }
+    }
+
+    void SetZoom()
+    {
+        while (Input.touchCount == 2)
+        {
+            if (!pinchActive)
+            {
+                finger1StartPos = Input.GetTouch(0).position;
+                finger2StartPos = Input.GetTouch(1).position;
+                pinchActive = true;
+            }
+            else
+            {
+                float currentPinchDistance = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+                float previousPinchDistance = Vector2.Distance(finger1StartPos, finger2StartPos);
+                float difference = currentPinchDistance - previousPinchDistance;
+
+                if (Mathf.Abs(difference) > pinchThreshold)
+                {
+                    pinchTransformAddition -= difference * pinchSpeed * Time.deltaTime;
+                    pinchTransformAddition = Mathf.Clamp(pinchTransformAddition, minMaxZoom.x, minMaxZoom.y);
+                }
+            }
+            break;
+        }
+        if (Input.touchCount < 2)
+        {
+            pinchActive = false;
         }
     }
 

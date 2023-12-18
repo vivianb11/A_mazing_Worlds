@@ -48,10 +48,7 @@ public class GameManager : MonoBehaviour
 
         mainCamera = Camera.main;
         cameraFolow = mainCamera.GetComponent<CameraFolow>();
-    }
 
-    private void Start()
-    {
         if (levels.Count <= 0)
             Debug.LogWarning("No levels found" + "Check the the Planet Tag Has been well put on the parent");
 
@@ -59,6 +56,9 @@ public class GameManager : MonoBehaviour
         
         foreach (var level in levels)
         {
+            if (!level.GetComponent<SplineAnimate>())
+                level.gameObject.AddComponent<SplineAnimate>();
+
             splines.Add(level.GetComponent<SplineAnimate>());
         }
 
