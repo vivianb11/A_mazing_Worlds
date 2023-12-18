@@ -7230,7 +7230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1377241242383934679
 Transform:
   m_ObjectHideFlags: 0
@@ -7349,7 +7349,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 4
   levelName: 
-  timer: 0
+  planetStats: {fileID: 0}
+  tries: 0
+  levelType: 2
   time: 0
   finish: {fileID: 8492143044264670357}
   start: {fileID: 4974558880757438462}
