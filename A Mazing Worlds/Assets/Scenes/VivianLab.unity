@@ -840,12 +840,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb76f2d110270749ae37a2766b0fe6b, type: 3}
---- !u!4 &2031022595 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-    type: 3}
-  m_PrefabInstance: {fileID: 7148053961540076221}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &164831919222430210
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +876,6 @@ Transform:
   m_Children:
   - {fileID: 6530523335604882993}
   - {fileID: 6364353898404954547}
-  - {fileID: 2031022595}
   - {fileID: 9200774971275079587}
   - {fileID: 51926873}
   - {fileID: 1532042948}
@@ -1495,8 +1488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9e7c4c45dbb974bbc930c18d1f0fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGravityRange: 1
-  gravityForce: 15
+  showGravityRange: 0
+  gravityForce: 20
   gravityRange: 75
 --- !u!33 &6101030345953060282
 MeshFilter:
@@ -1699,79 +1692,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &7148053961540076221
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 280894086601039936}
-    m_Modifications:
-    - target: {fileID: 1213853623298249629, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_Name
-      value: SlidingWall
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.474
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.231
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.97447777
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.00095524295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.2244821
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 179.006
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180.732
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873004818558417655, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 191.243
-      objectReference: {fileID: 0}
-    - target: {fileID: 6639508153781494129, guid: 4824f35cd6407af4e8bc243bbab26516,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4824f35cd6407af4e8bc243bbab26516, type: 3}
 --- !u!1001 &7183944425694397236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2048,7 +1968,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 1
   levelName: 
-  timer: 0
+  planetStats: {fileID: 0}
+  tries: 0
+  levelType: 2
   time: 0
   finish: {fileID: 1532042948}
   start: {fileID: 3247505227711454073}

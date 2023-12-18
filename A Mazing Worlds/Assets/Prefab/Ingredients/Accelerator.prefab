@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.032510288, y: 0.0032981688, z: 0.032510288}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.05, y: 0.005, z: 0.05}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,6 +140,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1d629a62c264f4e8708520a7aaceec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onIdle:
+    m_PersistentCalls:
+      m_Calls: []
+  onLaunching:
+    m_PersistentCalls:
+      m_Calls: []
+  onCooldown:
+    m_PersistentCalls:
+      m_Calls: []
   acceleratorMode: 1
   boostForce: 10
   cooldown: 1

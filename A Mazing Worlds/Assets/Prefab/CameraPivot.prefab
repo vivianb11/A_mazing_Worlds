@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBehavior: 1
   _target: {fileID: 0}
-  cameraDistanceFromTarget: 75
-  pinchThreshold: 0.1
-  pinchSpeed: 50
-  minMaxZoom: {x: -40, y: 75}
+  cameraDistanceFromTarget: 100
+  pinchThreshold: 0.5
+  pinchSpeed: 1
+  minMaxZoom: {x: -40, y: 100}
 --- !u!1 &8091511536515899200
 GameObject:
   m_ObjectHideFlags: 0

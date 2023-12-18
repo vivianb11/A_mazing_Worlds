@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213853623298249629}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.00095524295, z: 0.2244821, w: 0.97447777}
-  m_LocalPosition: {x: 0.474, y: 0.231, z: 0.001}
-  m_LocalScale: {x: 0.061922483, y: 0.028805533, z: 0.13916409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 179.006, y: -180.732, z: 191.243}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1462553390950329888
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -149,5 +149,4 @@ MonoBehaviour:
   slidingWallSpeed: 5
   maxVelocity: 10
   minVelocity: 0
-  playerMovement: {fileID: 0}
   rb: {fileID: 0}
