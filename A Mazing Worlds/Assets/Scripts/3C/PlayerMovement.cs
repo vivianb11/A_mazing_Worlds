@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        Vector2 direction = GameInput.instance.GetGyro();
+        Vector2 direction = GameInput.instance.GetGyroPercent();
         Vector2 movement = direction * maxPlayerSpeed;
 
         rb.AddForce(movementOrientation.right * movement.x);

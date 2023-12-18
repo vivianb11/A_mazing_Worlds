@@ -50,19 +50,18 @@ public class GameInput : MonoBehaviour
         if (!accelerationEnabled)
             return Vector2.zero;
 
-        Vector2 unclaptedDirection = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y) - new Vector2(flatGyro.x, flatGyro.y) + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        float xDir = Input.gyro.gravity.x - flatGyro.x + Input.GetAxis("Horizontal");
+        float yDir = Input.gyro.gravity.y - flatGyro.y + Input.GetAxis("Vertical");
+        Vector2 unclaptedDirection = new Vector2(xDir, yDir);
 
         return unclaptedDirection;
     }
 
     public Vector2 GetGyroPercent()
     {
-        return new Vector2(Mathf.Clamp((Mathf.Abs(GetGyro().x) - deadZone.x) / (minMaxXYaw - deadZone.x), 0, 1) * Mathf.Sign(GetGyro().x), Mathf.Clamp((Mathf.Abs(GetGyro().y) - deadZone.y) / (minMaxYPitch - deadZone.y), 0, 1) * Mathf.Sign(GetGyro().y));
-    }
-
-    private void Update()
-    {
-        
+        Vector2 gyro = GetGyro();
+        return new Vector2(Mathf.Clamp((Mathf.Abs(gyro.x) - deadZone.x) / (minMaxXYaw - deadZone.x), 0, 1) * Mathf.Sign(gyro.x),
+                           Mathf.Clamp((Mathf.Abs(gyro.y) - deadZone.y) / (minMaxYPitch - deadZone.y), 0, 1) * Mathf.Sign(gyro.y));
     }
 
     [Button]

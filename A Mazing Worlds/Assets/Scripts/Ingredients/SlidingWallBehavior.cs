@@ -23,7 +23,7 @@ public class SlidingWallBehavior : MonoBehaviour
         //rotates the up vector of the sliding wall to the vector form the center of the planet whitch is 2 parents above to this object
         transform.right = transform.position - transform.parent.parent.position;
 
-        ApplyForce(GameInput.instance.GetGyro());
+        ApplyForce(GameInput.instance.GetGyroPercent());
     }
 
     //applyes a force to the sliding wall
