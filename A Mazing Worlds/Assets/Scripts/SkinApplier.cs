@@ -23,6 +23,8 @@ public class SkinApplier : MonoBehaviour
 
             GameManager.instance.onNextLevel.AddListener(ApplySkin);
         }
+
+        ApplySkin();
     }
 
     public void ApplySkin()
