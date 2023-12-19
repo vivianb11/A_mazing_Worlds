@@ -16,23 +16,23 @@ public class SkinApplier : MonoBehaviour
 
     private void Start()
     {
-        if (skinsCosmetics.random)
+        if (skinsCosmetics.GetRandom())
         {
-            int random = Random.Range(0, skinsCosmetics.skins.Length);
-            meshRenderer.material = skinsCosmetics.skins[random];
+            int random = Random.Range(0, skinsCosmetics.GetSkins().Length);
+            meshRenderer.material = skinsCosmetics.GetSkins()[random];
 
             GameManager.instance.onNextLevel.AddListener(ApplySkin);
         }
-
-        ApplySkin();
+        else
+            meshRenderer.material = skinsCosmetics.GetSkin();
     }
 
     public void ApplySkin()
     {
-        if (!skinsCosmetics.random)
+        if (!skinsCosmetics.GetRandom())
             return;
 
-        int random = Random.Range(0, skinsCosmetics.skins.Length);
-        meshRenderer.material = skinsCosmetics.skins[random];
+        int random = Random.Range(0, skinsCosmetics.GetSkins().Length);
+        meshRenderer.material = skinsCosmetics.GetSkins()[random];
     }
 }

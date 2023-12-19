@@ -313,44 +313,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet2
       objectReference: {fileID: 0}
+    - target: {fileID: 5270196025766822200, guid: 360d07232b6594e46a4b1b5d8ac6aae2,
+        type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 169689142}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4442785894420662717, guid: 360d07232b6594e46a4b1b5d8ac6aae2,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 108151985}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 360d07232b6594e46a4b1b5d8ac6aae2, type: 3}
---- !u!1 &108151984 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442785894420662717, guid: 360d07232b6594e46a4b1b5d8ac6aae2,
-    type: 3}
-  m_PrefabInstance: {fileID: 108151983}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &108151985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108151984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 169689142}
-  m_PlayOnAwake: 1
-  m_LoopMode: 1
-  m_Method: 0
-  m_Duration: 100
-  m_MaxSpeed: 0.031416487
-  m_EasingMode: 0
-  m_AlignmentMode: 0
-  m_ObjectForwardAxis: 2
-  m_ObjectUpAxis: 1
-  m_StartOffset: 0
 --- !u!1001 &123529558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,50 +386,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet4
       objectReference: {fileID: 0}
-    - target: {fileID: 5417063669844175953, guid: 74503ef11e109a84cb4c63954c7e10f3,
+    - target: {fileID: 8207545937872219295, guid: 74503ef11e109a84cb4c63954c7e10f3,
         type: 3}
-      propertyPath: planetStats
+      propertyPath: m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: 5a8872dabf2fecf49be42f9a08675408,
-        type: 2}
+      objectReference: {fileID: 851640758}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4442785894420662717, guid: 74503ef11e109a84cb4c63954c7e10f3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 123529560}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74503ef11e109a84cb4c63954c7e10f3, type: 3}
---- !u!1 &123529559 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442785894420662717, guid: 74503ef11e109a84cb4c63954c7e10f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 123529558}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &123529560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123529559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 851640758}
-  m_PlayOnAwake: 1
-  m_LoopMode: 1
-  m_Method: 0
-  m_Duration: 100
-  m_MaxSpeed: 0.031416487
-  m_EasingMode: 0
-  m_AlignmentMode: 0
-  m_ObjectForwardAxis: 2
-  m_ObjectUpAxis: 1
-  m_StartOffset: 0
 --- !u!1 &169689141
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,65 +850,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3766880848117035137, guid: 26b2836e034affc459a9cd6b75a3f701,
+        type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 397162256}
     - target: {fileID: 4442785894420662717, guid: 26b2836e034affc459a9cd6b75a3f701,
         type: 3}
       propertyPath: m_Name
       value: Planet3
       objectReference: {fileID: 0}
-    - target: {fileID: 5417063669844175953, guid: 26b2836e034affc459a9cd6b75a3f701,
-        type: 3}
-      propertyPath: start
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5417063669844175953, guid: 26b2836e034affc459a9cd6b75a3f701,
-        type: 3}
-      propertyPath: finish
-      value: 
-      objectReference: {fileID: 607221782}
-    - target: {fileID: 5417063669844175953, guid: 26b2836e034affc459a9cd6b75a3f701,
-        type: 3}
-      propertyPath: planetStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 8fcd1839c6cf56b4492f750b6aacd085,
-        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4442785894420662717, guid: 26b2836e034affc459a9cd6b75a3f701,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 349708718}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b2836e034affc459a9cd6b75a3f701, type: 3}
---- !u!1 &349708717 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442785894420662717, guid: 26b2836e034affc459a9cd6b75a3f701,
-    type: 3}
-  m_PrefabInstance: {fileID: 349708716}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &349708718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349708717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 397162256}
-  m_PlayOnAwake: 1
-  m_LoopMode: 1
-  m_Method: 0
-  m_Duration: 90
-  m_MaxSpeed: 0.034907207
-  m_EasingMode: 0
-  m_AlignmentMode: 0
-  m_ObjectForwardAxis: 2
-  m_ObjectUpAxis: 1
-  m_StartOffset: 0
 --- !u!1 &397162255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,24 +1261,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1899759188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &549035435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7582406286619709447, guid: 7216a7ff4fad2c045b2517859ae522b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1175015833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50bb2f3d23e17249a9a0aba88e5b6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &607221782 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1396322338347720808, guid: 26b2836e034affc459a9cd6b75a3f701,
-    type: 3}
-  m_PrefabInstance: {fileID: 349708716}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &851640757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,54 +2286,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2223612154702851907, guid: 12b16e1d74bf479448b8b90640a8fed4,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 9044438532479133505, guid: ce719363a594ba04992cfb42125275cd,
-        type: 3}
     - target: {fileID: 5131271381916947402, guid: 12b16e1d74bf479448b8b90640a8fed4,
         type: 3}
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 903766775}
-    - target: {fileID: 5131271381916947402, guid: 12b16e1d74bf479448b8b90640a8fed4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131271381916947402, guid: 12b16e1d74bf479448b8b90640a8fed4,
-        type: 3}
-      propertyPath: m_AlignmentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632597559639121761, guid: 12b16e1d74bf479448b8b90640a8fed4,
-        type: 3}
-      propertyPath: PlayerCollisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 549035435}
     - target: {fileID: 6154916109611487481, guid: 12b16e1d74bf479448b8b90640a8fed4,
         type: 3}
       propertyPath: m_Name
       value: Planet 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6154916109611487481, guid: 12b16e1d74bf479448b8b90640a8fed4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Planet
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2904580780820468881, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 1778946195141110268, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 1805415893211003962, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 6670192158384582446, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 5194528144064449472, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 523931054228277294, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 3758517591698079262, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 1839223891655908198, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 6007053671289321045, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
-    - {fileID: 9014280205706023409, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12b16e1d74bf479448b8b90640a8fed4, type: 3}

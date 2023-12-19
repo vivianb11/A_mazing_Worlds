@@ -60,6 +60,19 @@ public class ShopScript : MonoBehaviour
 
     public void ApplySkin()
     {
-        skinsCosmetics.SetSkin(materials[selected]);
+        // Sets the skin selected to the scriptable object SkinsCosmetics
+        skinsCosmetics.SetSkin(new (materials[selected]));
+    }
+}
+
+class SkinMat
+{
+    public Material skin;
+    public bool owned;
+
+    public SkinMat(Material skin)
+    {
+        this.owned = false;
+        this.skin = skin;
     }
 }

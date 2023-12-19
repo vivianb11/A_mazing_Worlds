@@ -66,10 +66,10 @@ public class LevelManager : MonoBehaviour
         if (levelType == LevelType.Timed)
         {
             CancelInvoke("Time");
-            planetStats.BestTime = time < planetStats.BestTime ? time : planetStats.BestTime;
+            planetStats.SetBestTime(time);
         }
 
-        planetStats.numberOfTrys = tries < planetStats.numberOfTrys ? tries : planetStats.numberOfTrys;
+        planetStats.SetNumberOfTrys(tries);
 
         onLevelEnd.Invoke();
     }
