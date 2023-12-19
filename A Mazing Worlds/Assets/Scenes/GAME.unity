@@ -352,6 +352,11 @@ PrefabInstance:
       propertyPath: boostForce
       value: 17.37
       objectReference: {fileID: 0}
+    - target: {fileID: 8207545937872219295, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 851640758}
     - target: {fileID: 8648402532459380344, guid: 74503ef11e109a84cb4c63954c7e10f3,
         type: 3}
       propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.size
