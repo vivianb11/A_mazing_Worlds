@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         else
             instance = this;
 
-        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;

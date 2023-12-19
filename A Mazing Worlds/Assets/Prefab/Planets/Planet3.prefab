@@ -5808,7 +5808,7 @@ MonoBehaviour:
   levelType: 2
   time: 0
   finish: {fileID: 1396322338347720808}
-  start: {fileID: 0}
+  start: {fileID: 1074919968298230122}
   onLevelStart:
     m_PersistentCalls:
       m_Calls: []
@@ -11614,21 +11614,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6045121200240401631, guid: dcf364bf16ac94843b6a44af6ae12fc7,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6045121200240401631, guid: dcf364bf16ac94843b6a44af6ae12fc7,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.009999997
-      objectReference: {fileID: 0}
-    - target: {fileID: 6045121200240401631, guid: dcf364bf16ac94843b6a44af6ae12fc7,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.009999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 6045121200240401631, guid: dcf364bf16ac94843b6a44af6ae12fc7,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.19385529
       objectReference: {fileID: 0}
@@ -11678,8 +11663,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3463693241528054810, guid: dcf364bf16ac94843b6a44af6ae12fc7, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf364bf16ac94843b6a44af6ae12fc7, type: 3}
@@ -11866,6 +11850,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1acc795845c81948aab77e9793701d6, type: 3}
+--- !u!4 &1074919968298230122 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5044220887284284663, guid: e1acc795845c81948aab77e9793701d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5254097883133418909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1949737151621988674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6045121200240401631, guid: e1acc795845c81948aab77e9793701d6,
