@@ -57,6 +57,9 @@ MonoBehaviour:
   onNextLevel:
     m_PersistentCalls:
       m_Calls: []
+  onFinishAllLevels:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2128736803212647875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,9 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff328834df1d82244bd2d6999effa5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMaxXYaw: 0.5
-  minMaxYPitch: 0.5
-  deadZone: {x: 0.2, y: 0.2}
+  minMaxXYaw: 0.3
+  minMaxYPitch: 0.3
+  deadZone: {x: 0.1, y: 0.1}
 --- !u!114 &2853357572594204702
 MonoBehaviour:
   m_ObjectHideFlags: 0
