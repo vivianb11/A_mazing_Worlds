@@ -149,17 +149,17 @@ PrefabInstance:
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.8
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -46.63
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.9
+      value: 9.7
       objectReference: {fileID: 0}
     - target: {fileID: 2654470397813820936, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
@@ -288,6 +288,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 6154916109611487481, guid: 12b16e1d74bf479448b8b90640a8fed4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -392,21 +397,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraPivot
-      objectReference: {fileID: 0}
-    - target: {fileID: 5164690585327661583, guid: edb76f2d110270749ae37a2766b0fe6b,
-        type: 3}
-      propertyPath: minMaxZoom.x
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5164690585327661583, guid: edb76f2d110270749ae37a2766b0fe6b,
-        type: 3}
-      propertyPath: minMaxZoom.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5164690585327661583, guid: edb76f2d110270749ae37a2766b0fe6b,
-        type: 3}
-      propertyPath: cameraDistanceFromTarget
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6749441596451612163, guid: edb76f2d110270749ae37a2766b0fe6b,
         type: 3}
@@ -761,6 +751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet4
       objectReference: {fileID: 0}
+    - target: {fileID: 4442785894420662717, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -828,6 +823,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planet3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442785894420662717, guid: 26b2836e034affc459a9cd6b75a3f701,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

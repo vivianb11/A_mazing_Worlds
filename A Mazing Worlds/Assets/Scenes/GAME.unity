@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03836431, g: 0.028886031, b: 0.04799936, a: 1}
+  m_IndirectSpecularColor: {r: 0.038133845, g: 0.028987557, b: 0.047927327, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -443,6 +443,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 604104888740288309, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242748210265883805, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1377241242383934679, guid: 74503ef11e109a84cb4c63954c7e10f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -493,16 +503,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1468447479112147121, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940986042097452000, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 9.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563176907820315405, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840534074732289641, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985270461168168576, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4442785894420662717, guid: 74503ef11e109a84cb4c63954c7e10f3,
         type: 3}
       propertyPath: m_Name
       value: Planet4
       objectReference: {fileID: 0}
-    - target: {fileID: 8207545937872219295, guid: 74503ef11e109a84cb4c63954c7e10f3,
+    - target: {fileID: 5400716792804114082, guid: 74503ef11e109a84cb4c63954c7e10f3,
         type: 3}
-      propertyPath: m_Target
-      value: 
-      objectReference: {fileID: 851640758}
+      propertyPath: boostForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841062172561058655, guid: 74503ef11e109a84cb4c63954c7e10f3,
+        type: 3}
+      propertyPath: boostForce
+      value: 17.37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2408,6 +2448,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6521244092639270553, guid: 12b16e1d74bf479448b8b90640a8fed4,
+        type: 3}
+      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1242880203}
+    - target: {fileID: 6521244092639270553, guid: 12b16e1d74bf479448b8b90640a8fed4,
+        type: 3}
+      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2476,11 +2526,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4664593943496157281, guid: 7216a7ff4fad2c045b2517859ae522b6,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7216a7ff4fad2c045b2517859ae522b6, type: 3}
+--- !u!114 &1242880203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5884899182087757890, guid: 6ffb5879f7082214d8f1efeeeca6d4f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275275926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797f5c6ebb2deb6469618defe3b8c336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1275275926
 PrefabInstance:
   m_ObjectHideFlags: 0
