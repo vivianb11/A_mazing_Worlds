@@ -71,15 +71,15 @@ public class GameManager : MonoBehaviour
                 DeActivatePlanet(level.gameObject); 
                 spline.enabled = true;
             }
-            else
-            {
-                ActivatePlanet(level.gameObject);
-                spline.enabled = false;
-                cameraPivot.transform.position = level.transform.position;
-                cameraFolow.SetCameraPosition(cameraFolow.target);
-                cameraFolow.SetCameraRotation(cameraFolow.target);
-                players[0].position = level.GetComponent<LevelManager>().start.position;
-            }
+            //else
+            //{
+            //    ActivatePlanet(level.gameObject);
+            //    spline.enabled = false;
+            //    cameraPivot.transform.position = level.transform.position;
+            //    cameraFolow.SetCameraPosition(cameraFolow.target);
+            //    cameraFolow.SetCameraRotation(cameraFolow.target);
+            //    players[0].position = level.GetComponent<LevelManager>().start.position;
+            //}
         }
     }
 
