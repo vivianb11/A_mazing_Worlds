@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviour
                 DeActivatePlanet(level.gameObject); 
                 spline.enabled = true;
             }
-            //else
+            else
+                spline.enabled = false;
             //{
             //    ActivatePlanet(level.gameObject);
-            //    spline.enabled = false;
             //    cameraPivot.transform.position = level.transform.position;
             //    cameraFolow.SetCameraPosition(cameraFolow.target);
             //    cameraFolow.SetCameraRotation(cameraFolow.target);
