@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5884899182087757890}
   - component: {fileID: 2128736803212647875}
   - component: {fileID: 2853357572594204702}
+  - component: {fileID: 3983824608400219811}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -94,3 +95,18 @@ MonoBehaviour:
   levelName: []
   levelTime: []
   levelTries: []
+--- !u!114 &3983824608400219811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471470935741497519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b938b582b5dbf2449c0faab26bad21d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 8300000, guid: 9b3bf0f6b06016e41a139b07c67c94ec, type: 3}
+  musicVolume: 1
+  sfxVolume: 1
