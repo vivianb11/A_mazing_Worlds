@@ -22,9 +22,10 @@ public class MenuIG : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void Restart()
+    public void RestartGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Game");
     }
+
 }
