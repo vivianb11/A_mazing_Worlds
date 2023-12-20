@@ -38,7 +38,6 @@ public class AudioManager : MonoBehaviour
             bgMusicSource.loop = true;
             bgMusicSource.volume = musicVolume;
             bgMusicSource.Play();
-            DontDestroyOnLoad(bgMusic);
         }
         else
         {

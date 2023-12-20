@@ -75,6 +75,10 @@ public class GameManager : MonoBehaviour
             {
                 ActivatePlanet(level.gameObject);
                 spline.enabled = false;
+                cameraPivot.transform.position = level.transform.position;
+                cameraFolow.SetCameraPosition(cameraFolow.target);
+                cameraFolow.SetCameraRotation(cameraFolow.target);
+                players[0].position = level.GetComponent<LevelManager>().start.position;
             }
         }
     }
