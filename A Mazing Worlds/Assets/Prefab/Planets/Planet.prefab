@@ -2555,6 +2555,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button 2
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
         type: 3}
       propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.size
@@ -2590,6 +2591,8 @@ PrefabInstance:
       propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+=======
+>>>>>>> Stashed changes
     - target: {fileID: 8194665497832322992, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
         type: 3}
       propertyPath: m_LocalPosition.x
