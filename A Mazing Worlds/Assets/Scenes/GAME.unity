@@ -2900,6 +2900,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'GameCanvas '
       objectReference: {fileID: 0}
+    - target: {fileID: 2422989652832974366, guid: 4debfe2394700534dbfb9f8797584f88,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -377.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3345667938946706007, guid: 4debfe2394700534dbfb9f8797584f88,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3023,7 +3028,12 @@ PrefabInstance:
     - target: {fileID: 6952653703532975277, guid: 4debfe2394700534dbfb9f8797584f88,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645316214524347298, guid: 4debfe2394700534dbfb9f8797584f88,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -73
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
