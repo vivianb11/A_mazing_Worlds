@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3675237304415733061}
   - component: {fileID: 6473114001236257474}
   - component: {fileID: 6743371808517365136}
+  - component: {fileID: 7613220210155002469}
   m_Layer: 0
   m_Name: KillerWall
   m_TagString: Untagged
@@ -107,3 +108,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29140428, y: 1.0101271, z: 1.4273905}
   m_Center: {x: 0, y: 0.3251484, z: -0.0029513985}
+--- !u!114 &7613220210155002469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189939806780285271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bc279c2a71faa48841afef7e25435e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerCollisionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerCollisionExit:
+    m_PersistentCalls:
+      m_Calls: []

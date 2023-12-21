@@ -451,6 +451,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -752,6 +782,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -905,6 +965,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -984,6 +1074,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1063,6 +1183,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1460,12 +1610,12 @@ PrefabInstance:
     - target: {fileID: 3400934281377027463, guid: 153914d00e81f744d93336e77ad77a59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4728
+      value: 0.4761
       objectReference: {fileID: 0}
     - target: {fileID: 3400934281377027463, guid: 153914d00e81f744d93336e77ad77a59,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1538
+      value: 0.1548
       objectReference: {fileID: 0}
     - target: {fileID: 3400934281377027463, guid: 153914d00e81f744d93336e77ad77a59,
         type: 3}
@@ -1961,6 +2111,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2188,6 +2368,41 @@ PrefabInstance:
       propertyPath: jumpPadMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2267,6 +2482,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2345,6 +2590,41 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpPadMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2647,6 +2927,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c4940555580990d4cb2416be90085718, type: 2}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613220210155002469, guid: a10bf594e3d0ed94cb93429a202eb22d,
+        type: 3}
+      propertyPath: PlayerCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3027,6 +3337,41 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpPadMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410509959854490112, guid: f3a07c7a9a1b1954b8c135313e56aa21,
+        type: 3}
+      propertyPath: onLaunching.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
