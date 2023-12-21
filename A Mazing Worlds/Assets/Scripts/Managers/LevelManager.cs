@@ -76,8 +76,8 @@ public class LevelManager : MonoBehaviour
 
     public void Respawn()
     {
-        GameManager.instance.players[0].position = start.position;
         GameManager.instance.players[0].GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GameManager.instance.players[0].position = start.position;
 
         tries++;
         
