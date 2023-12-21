@@ -1557,17 +1557,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7908850120652495930, guid: d6f20eb90f941b94ea5507077e9953c0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6f20eb90f941b94ea5507077e9953c0, type: 3}
---- !u!1 &510178134367772597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1671963026073113204, guid: d6f20eb90f941b94ea5507077e9953c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1162075818865020353}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1506323382072564569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 344258114885359256, guid: d6f20eb90f941b94ea5507077e9953c0,
@@ -2451,6 +2450,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 7908850120652495930, guid: d6f20eb90f941b94ea5507077e9953c0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2555,44 +2559,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button 2
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
-        type: 3}
-      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
-        type: 3}
-      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
-        type: 3}
-      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 510178134367772597}
-    - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
-        type: 3}
-      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
-        type: 3}
-      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
-        type: 3}
-      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8031179747935674590, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
-        type: 3}
-      propertyPath: PlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-=======
->>>>>>> Stashed changes
     - target: {fileID: 8194665497832322992, guid: ee0c2b8f7b4faa7418d51eb0bc4edec4,
         type: 3}
       propertyPath: m_LocalPosition.x
