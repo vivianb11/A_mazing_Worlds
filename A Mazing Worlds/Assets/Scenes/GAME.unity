@@ -2295,7 +2295,7 @@ PrefabInstance:
     - target: {fileID: 7582406286619709447, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}
       propertyPath: maxVelocity
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7582406286619709447, guid: 7216a7ff4fad2c045b2517859ae522b6,
         type: 3}

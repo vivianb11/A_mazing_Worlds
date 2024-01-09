@@ -92674,7 +92674,7 @@ PrefabInstance:
     - target: {fileID: 3605187804686231905, guid: 153914d00e81f744d93336e77ad77a59,
         type: 3}
       propertyPath: boostForce
-      value: 11.37
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6118608817256024888, guid: 153914d00e81f744d93336e77ad77a59,
         type: 3}

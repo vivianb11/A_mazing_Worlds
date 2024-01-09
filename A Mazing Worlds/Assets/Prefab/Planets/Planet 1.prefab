@@ -18016,7 +18016,7 @@ Transform:
   m_GameObject: {fileID: 5107631406023937125}
   serializedVersion: 2
   m_LocalRotation: {x: -0.004375435, y: -0, z: -0.75385714, w: 0.6570238}
-  m_LocalPosition: {x: 0.4925, y: -0.0677, z: 0.006}
+  m_LocalPosition: {x: 0.4942, y: -0.0679, z: 0.006}
   m_LocalScale: {x: 0.050000004, y: 0.050000004, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22198,7 +22198,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   acceleratorMode: 1
-  boostForce: 10
+  boostForce: 30
   cooldown: 1
 --- !u!1 &7712103588098576303
 GameObject:
@@ -23107,7 +23107,7 @@ Transform:
   m_GameObject: {fileID: 8561558783173694180}
   serializedVersion: 2
   m_LocalRotation: {x: -0.14804855, y: -0, z: 0.52134806, w: 0.8404034}
-  m_LocalPosition: {x: -0.345, y: 0.3515, z: -0.1543}
+  m_LocalPosition: {x: -0.3309, y: 0.3449, z: -0.1503}
   m_LocalScale: {x: 0.001926253, y: 0.0019262533, z: 0.0019262532}
   m_ConstrainProportionsScale: 0
   m_Children: []
